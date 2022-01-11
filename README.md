@@ -1,6 +1,11 @@
 # Factory
 
-This package makes testing easier by creating factories for your entities/models. One could find inspiration came from the [Factory Boy](https://github.com/FactoryBoy/factory_boy) python package.
+This package makes testing easier by providing way to create factories for your entities/models. Inspiration came from the [Factory Boy](https://github.com/FactoryBoy/factory_boy) python package, [Factory Girl](https://github.com/simonexmachina/factory-girl). You also check these projects:
+
+- [typeorm-seeding](https://github.com/jorgebodega/typeorm-seeding)
+- [typeorm-factories](https://github.com/owl1n/typeorm-factories)
+- [typeorm-factory](https://github.com/linnify/typeorm-factory)
+- [factory-girl-typeorm](https://github.com/wymsee/factory-girl-typeorm)
 
 It has been created with only 2 adapters and others might be added if needed.
 
@@ -26,7 +31,13 @@ This section provides a quick overview of what you can achieve with this package
 
 #### Declaration
 
-To declare a factory, you have to declare which adapter your using (plain Object, typeorm, ...), the entity you are building and the fields to be populated.
+To declare a factory, you have to provide:
+
+- An adapter: ObjectAdapter, TypeormAdapter, ...
+- An entity: the model you are building
+- The fields to be populated (theirs default values or ways to generate them)
+
+The adapter allows you to persist your data. If you want to save your data in a database via typeorm, you can use the `TypeormAdapter`. Default Adapter is `ObjectAdapter` and does not persist anything. You can create your own adapter to persist your data the way you want.
 
 ```typescript
 import { Factory } from '@teamMay/factory';
@@ -78,7 +89,7 @@ export class TypeormUserFactory extends TypeormFactory<User> {
 }
 ```
 
-#### Fuzzy generation with Faker/Chance etc...
+#### Fuzzy generation with Fakerjs/Chancejs/...
 
 To generate pseudo random data for our factories, we can take advantage of libraries like:
 
@@ -102,6 +113,8 @@ export class ProfileFactory extends TypeormFactory<Profile> {
 }
 ```
 
+Note: Faker/Change are not included in this library. We only use the fact that a function passed to `attrs` is called every time a factory is created. Thus, you can use Faker/Chancejs to generate data.
+
 #### Exploiting our created factories
 
 We can use our factories to create new instances of entities:
@@ -112,16 +125,16 @@ const userFactory = new UserFactory();
 
 The factory and its adapters expose some functions:
 
-- make: to create an object (and eventually generate data / subfactories)
+- build: to create an object (and eventually generate data / subFactories)
 - create: same as make but persist object in database via ORM "save" method
-- makeMany and createMany allow to create several instances in one go
+- buildMany and createMany allow to create several instances in one go
 
 ```typescript
 const user: User = await userFactory.create();
 const users: User[] = await userFactory.createMany(5);
 ```
 
-To overridde factory default attributes, add them as parameter to the create function:
+To override factory default attributes, add them as parameter to the create function:
 
 ```typescript
 const user: User = await userFactory.create({ email: 'adrien@example.com' });
@@ -129,11 +142,11 @@ const user: User = await userFactory.create({ email: 'adrien@example.com' });
 
 ### SubFactories
 
-It is fairly common for entities to have relations (manyToOne, oneToMany, oneToOne etc...) between them. In this case we create factories for all the entities and make use of `SubFactory` to create a link between them. Subfactories will be resolve when instance are built. Note that tis is pure syntaxic sugar as one could use an arrow function calling another factory.
+It is fairly common for entities to have relations (manyToOne, oneToMany, oneToOne etc...) between them. In this case we create factories for all the entities and make use of `SubFactory` to create a link between them. SubFactories will be resolve when instance are built. Note that this is pure syntactic sugar as one could use an arrow function calling another factory.
 
 #### Example
 
-If one user has a profile entity linked to it: we use the `UserFactory` as a subfactory on the `ProfileFactory`
+If one user has a profile entity linked to it: we use the `UserFactory` as a SubFactory on the `ProfileFactory`
 
 ```typescript
 import { Factory, SubFactory } from '@teamMay/factory';
