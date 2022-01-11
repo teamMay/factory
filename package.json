@@ -1,0 +1,55 @@
+{
+  "name": "@teamMay/factory",
+  "version": "0.0.1",
+  "description": "Factories to ease testing",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepare": "husky install"
+  },
+  "author": "Adrien Brunet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamMay/factory.git"
+  },
+  "keywords": [
+    "factory",
+    "testing",
+    "typescript",
+    "factories",
+    "typeorm",
+    "strapi",
+    "tests"
+  ],
+  "homepage": "https://github.com/teamMay/factory#readme",
+  "license": "ISC",
+  "peerDependencies": {
+    "typeorm": "^0.2.41"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.8",
+    "@types/sinon": "^10.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "codecov": "^3.8.3",
+    "eslint": "^8.6.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "lint-staged": "^12.1.7",
+    "prettier": "^2.5.1",
+    "sinon": "^12.0.1",
+    "sqlite3": "^5.0.2",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "typeorm": "^0.2.41"
+  }
+}
