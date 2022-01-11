@@ -9,6 +9,8 @@ This package makes testing easier by providing way to create factories for your 
 
 It has been created with only 2 adapters and others might be added if needed.
 
+![Build](https://github.com/teamMay/factory/actions/workflows/node.js.yml/badge.svg)
+
 ## Installation
 
 **NPM**
