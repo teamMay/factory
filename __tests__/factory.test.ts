@@ -1,4 +1,4 @@
-import { CookFactory } from './factories/cook.factory';
+import { CookFactory, LazyCookFactory, LazySequenceCookFactory } from './factories/cook.factory';
 import { RestaurantFactory } from './factories/restaurant.factory';
 import { Restaurant } from './entities/Restaurant';
 import { Cook } from './entities/Cook';
@@ -6,6 +6,8 @@ import { Cook } from './entities/Cook';
 describe('Factory with default adapter', () => {
   const restaurantFactory = new RestaurantFactory();
   const cookFactory = new CookFactory();
+  const lazyCookFactory = new LazyCookFactory();
+  const lazySequenceCookFactory = new LazySequenceCookFactory();
 
   describe('basic usage', () => {
     it('creates entity (not persisted) with default values when no attributes specified', async () => {
@@ -111,6 +113,36 @@ describe('Factory with default adapter', () => {
 
       // Then
       expect(cook.restaurant).toBeInstanceOf(Restaurant);
+    });
+  });
+
+  describe('LazyAttribute', () => {
+    it('lazy load params correctly', async () => {
+      // Given
+      const values = {};
+
+      // When
+      const cook1 = await lazyCookFactory.build(values);
+      const cook2 = await lazyCookFactory.build(values);
+
+      // Then
+      expect(cook1.mail).toEqual('Gordon0@yumyum.com');
+      expect(cook2.mail).toEqual('Gordon1@yumyum.com');
+    });
+  });
+
+  describe('LazySequence', () => {
+    it('creates a sequence with a lazy loaded param correctly', async () => {
+      // Given
+      const values = {};
+
+      // When
+      const cook1 = await lazySequenceCookFactory.build(values);
+      const cook2 = await lazySequenceCookFactory.build(values);
+
+      // Then
+      expect(cook1.mail).toEqual('Gordon0@yummy.com');
+      expect(cook2.mail).toEqual('Gordon1@yummy.com');
     });
   });
 });

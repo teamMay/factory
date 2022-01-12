@@ -2,8 +2,10 @@ import { ObjectAdapter, TypeormAdapter } from './adapters';
 import { Adapter } from './adapters/adapter';
 import { factoryStorage } from './factory-storage';
 import { Sequence } from './sequence';
+import { LazyAttribute } from './lazy-attribute';
 import { SubFactory } from './subfactory';
 import { Constructable, ConstructableAttrs } from './types';
+import { LazySequence } from '.';
 
 export abstract class Factory<T> {
   /**
@@ -85,17 +87,29 @@ export abstract class Factory<T> {
 
   /**
    * Use default factories attrs + optional override to build new objects.
-   * Resolves any subFactory, sequence or function before returning
+   * First: resolve any subFactory, sequence or function
+   * Then: resolve lazy attributes
+   * Return instance
    */
   private async createInstance(values: Partial<T>, { saveSubFactories }: { saveSubFactories: boolean }): Promise<T> {
     const instance: T = new this.entity();
 
+    // Fill values (expect lazy ones)
     await Promise.all(
       Object.entries(this.attrs).map(async ([key, value]) => {
-        // Take value overriden first if provided. Value from the defined factory otherwise
+        // Take overridden values first if provided, values from the defined factory otherwise
         const _value = Object.prototype.hasOwnProperty.call(values, key) ? values[key as keyof T] : value;
         const resolvedValue = await Factory.resolveValue(_value, { saveSubFactories });
         Object.assign(instance, { [key]: resolvedValue });
+      }),
+    );
+
+    // Fill lazy values with instance as a reference
+    await Promise.all(
+      Object.entries(this.attrs).map(async ([key, value]) => {
+        if (value instanceof LazyAttribute || value instanceof LazySequence) {
+          Object.assign(instance, { [key]: await value.resolve(instance) });
+        }
       }),
     );
 
@@ -104,11 +118,15 @@ export abstract class Factory<T> {
 
   /**
    * According to the value type, returns a usable value for the entity.
-   * It can execute a function, call next for a sequence, create/build on a subfactory or return directly the value
+   * It can execute a function, call next for a sequence, create/build on a subFactory or return directly the value
    */
   private static async resolveValue(value: unknown, { saveSubFactories }: { saveSubFactories: boolean }) {
     if (value instanceof SubFactory) {
       return saveSubFactories ? value.factory.create(value.values) : value.factory.build(value.values);
+    } else if (value instanceof LazyAttribute) {
+      return value;
+    } else if (value instanceof LazySequence) {
+      return value;
     } else if (value instanceof Sequence) {
       return value.next;
     } else if (value instanceof Function) {
