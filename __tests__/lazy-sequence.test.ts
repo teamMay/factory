@@ -3,11 +3,11 @@ import { LazySequence } from '../src';
 describe('LazySequence', () => {
   it('should resolve value', async () => {
     // Given
-    const callback = (nb: number, instance: any) => `${instance.firstName} ${instance.lastName} n°${nb}`;
     const firstName = 'Luke';
     const lastName = 'Skywalker';
-    const lazySequence = new LazySequence(callback);
     const instance = { firstName, lastName };
+    const callback = (nb: number, obj: typeof instance) => `${obj.firstName} ${obj.lastName} n°${nb}`;
+    const lazySequence = new LazySequence(callback);
 
     // When
     const resolvedValue = lazySequence.resolve(instance);
