@@ -97,7 +97,7 @@ export class TypeormUserFactory extends TypeormFactory<User> {
 
 ### SubFactories
 
-It is fairly common for entities to have relations (manyToOne, oneToMany, oneToOne etc...) between them. In this case we create factories for all the entities and make use of `SubFactory` to create a link between them. SubFactories will be resolve when instance are built. Note that this is pure syntactic sugar as one could use an arrow function calling another factory.
+It is fairly common for entities to have relations (manyToOne, oneToMany, oneToOne etc...) between them. In this case we create factories for all the entities and make use of `SubFactory` to create a link between them. SubFactories will be resolved when instances are built. Note that this is pure syntactic sugar as one could use an arrow function calling another factory.
 
 #### Example
 
@@ -111,7 +111,7 @@ export class ProfileFactory extends Factory<Profile> {
   entity = Profile;
   attrs = {
     name: 'Handsome name',
-    user: new SubFactory(UserFactory),
+    user: new SubFactory(UserFactory, { name: 'Override factory name' }),
   };
 }
 ```
