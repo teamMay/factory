@@ -21,13 +21,13 @@ So far, we only provide 2 adapters, others might be added later.
 **NPM**
 
 ```bash
-npm install @teamMay/factory --save-dev
+npm install @adrien-may/factory --save-dev
 ```
 
 **Yarn**
 
 ```bash
-yarn add @teamMay/factory --dev
+yarn add @adrien-may/factory --dev
 ```
 
 ## Usage
