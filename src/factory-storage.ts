@@ -1,15 +1,14 @@
 export class FactoryStorageMaker {
-  postGenerators: { [factoryName: string]: Array<string | symbol> } = {};
+  postGenerators: { [factoryName: string]: Set<string | symbol> } = {};
 
   addPostGenerator(factoryName: string, fnName: string | symbol): void {
     if (!this.postGenerators[factoryName]) {
-      this.postGenerators[factoryName] = [fnName];
-    } else {
-      this.postGenerators[factoryName].push(fnName);
+      this.postGenerators[factoryName] = new Set();
     }
+    this.postGenerators[factoryName].add(fnName);
   }
 
-  getPostGenerators(factoryName: string): Array<string | symbol> {
+  getPostGenerators(factoryName: string): Set<string | symbol> {
     return this.postGenerators[factoryName];
   }
 }

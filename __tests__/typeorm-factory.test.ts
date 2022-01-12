@@ -115,7 +115,7 @@ describe('Test Factory with typeorm', () => {
 
     // then
     expect(addCooksSpy.calledOnce).toBeTruthy();
-    expect(factoryStorage.getPostGenerators(restaurantFactory.constructor.name).length).toEqual(1);
+    expect(factoryStorage.getPostGenerators(restaurantFactory.constructor.name).size).toEqual(1);
     expect(restaurant.cooks.length).toEqual(3);
   });
 });

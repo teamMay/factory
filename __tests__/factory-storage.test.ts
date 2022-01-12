@@ -9,7 +9,7 @@ describe('FactoryStorageMaker', () => {
     // When
     storageInstance.addPostGenerator(factoryName, methodName);
     // Then
-    expect(storageInstance.postGenerators[factoryName]).toEqual([methodName]);
+    expect(storageInstance.postGenerators[factoryName]).toEqual(new Set([methodName]));
   });
 
   it('add several postGenerators returns a list', () => {
@@ -22,7 +22,7 @@ describe('FactoryStorageMaker', () => {
     storageInstance.addPostGenerator(factoryName, firstMethodName);
     storageInstance.addPostGenerator(factoryName, secondMethodName);
     // Then
-    expect(storageInstance.postGenerators).toEqual({ [factoryName]: [firstMethodName, secondMethodName] });
+    expect(storageInstance.postGenerators).toEqual({ [factoryName]: new Set([firstMethodName, secondMethodName]) });
   });
 
   it('return factory post generator method when a factory name is given', () => {
@@ -34,7 +34,7 @@ describe('FactoryStorageMaker', () => {
     // When
     const generators = storageInstance.getPostGenerators(factoryName);
     // Then
-    expect(generators).toEqual([methodName]);
+    expect(Array.from(generators)).toEqual([methodName]);
   });
 });
 
