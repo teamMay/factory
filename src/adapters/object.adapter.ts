@@ -6,7 +6,7 @@ export class ObjectAdapter extends Adapter {
    * entity in a database, we simply return it.
    * That makes ObjectAdapter factories "create" and "build" methods equivalent.
    */
-  save<T>(instance: T, entity: T): T {
+  save<T>(instance: T): T {
     return instance;
   }
 }

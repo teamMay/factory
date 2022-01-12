@@ -52,7 +52,9 @@ export abstract class Factory<T> {
   private async applyPostGenerators(instance: T): Promise<void> {
     const postGenerators = factoryStorage.getPostGenerators(this.constructor.name);
     if (postGenerators?.length) {
-      await Promise.all(postGenerators.map(async (fnName: string) => (this as any)[fnName](instance)));
+      // fnName can't exist in abstract class, it belongs to its children
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
+      await Promise.all(postGenerators.map(async (fnName: string | symbol) => (this as any)[fnName](instance)));
     }
   }
 
