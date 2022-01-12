@@ -96,7 +96,99 @@ export class TypeormUserFactory extends TypeormFactory<User> {
 }
 ```
 
-#### Fuzzy generation with Fakerjs/Chancejs/...
+### SubFactories
+
+It is fairly common for entities to have relations (manyToOne, oneToMany, oneToOne etc...) between them. In this case we create factories for all the entities and make use of `SubFactory` to create a link between them. SubFactories will be resolve when instance are built. Note that this is pure syntactic sugar as one could use an arrow function calling another factory.
+
+#### Example
+
+If one user has a profile entity linked to it: we use the `UserFactory` as a SubFactory on the `ProfileFactory`
+
+```typescript
+import { Factory, SubFactory } from '@teamMay/factory';
+import { UseFactory } from './user.factory.ts'; // factory naming is free of convention here, don't worry about it.
+
+export class ProfileFactory extends Factory<Profile> {
+  entity = Profile;
+  attrs = {
+    name: 'Handsome name',
+    user: new SubFactory(UserFactory),
+  };
+}
+```
+
+### Sequences
+
+Sequences allow you to get an incremental value each time it is ran with the same factory.
+That way, you can use a counter to have more meaningful data.
+
+```typescript
+import { Factory, Sequence } from '@teamMay/factory';
+
+export class UserFactory extends Factory<User> {
+  entity = User;
+  attrs = {
+    customerId: new Sequence((nb: number) => `cust__abc__xyz__00${nb}`),
+  };
+}
+```
+
+### Lazy Attributes
+
+Lazy attributes are useful when you want to generate a value based on the instance being created.
+They are resolved after every other attribute but BEFORE saving the entity. For any action "post save", use the PostGenerate hook.
+
+```typescript
+import { Factory, LazyAttribute } from '@teamMay/factory';
+
+export class UserFactory extends Factory<User> {
+  entity = User;
+  attrs = {
+    name: 'Sarah Connor',
+    mail: new LazyAttribute(instance => `${instance.name.toLowerCase()}@skynet.org`),
+  };
+}
+```
+
+### Lazy Sequences
+
+Lazy sequences combine the power of sequences and lazy attributes. The callback is called with an incremental number and the instance being created.
+
+```typescript
+import { Factory, LazySequence } from '@teamMay/factory';
+
+export class UserFactory extends Factory<User> {
+  entity = User;
+  attrs = {
+    name: 'Sarah Connor',
+    mail: new LazySequence((nb, instance) => `${instance.name.toLowerCase()}.${nb}@skynet.org`),
+  };
+}
+```
+
+### Post Generations
+
+To perform actions after an instance has been created, you can use the `PostGeneration` decorator.
+
+```typescript
+import { Factory, PostGeneration } from '@teamMay/factory';
+
+export class UserFactory extends Factory<User> {
+  ...
+
+  @PostGeneration()
+  postGenerationFunction() {
+    // perform an action after creation
+  }
+
+  @PostGeneration()
+  async actionOnCreatedUser(user: User) {
+    // do something with user
+  }
+}
+```
+
+### Fuzzy generation with Fakerjs/Chancejs/...
 
 To generate pseudo random data for our factories, we can take advantage of libraries like:
 
@@ -145,63 +237,4 @@ To override factory default attributes, add them as parameter to the create func
 
 ```typescript
 const user: User = await userFactory.create({ email: 'adrien@example.com' });
-```
-
-### SubFactories
-
-It is fairly common for entities to have relations (manyToOne, oneToMany, oneToOne etc...) between them. In this case we create factories for all the entities and make use of `SubFactory` to create a link between them. SubFactories will be resolve when instance are built. Note that this is pure syntactic sugar as one could use an arrow function calling another factory.
-
-#### Example
-
-If one user has a profile entity linked to it: we use the `UserFactory` as a SubFactory on the `ProfileFactory`
-
-```typescript
-import { Factory, SubFactory } from '@teamMay/factory';
-import { UseFactory } from './user.factory.ts'; // factory naming is free of convention here, don't worry about it.
-
-export class ProfileFactory extends Factory<Profile> {
-  entity = Profile;
-  attrs = {
-    name: 'Handsome name',
-    user: new SubFactory(UserFactory),
-  };
-}
-```
-
-### Sequences
-
-Sequences allow you to get an incremental value each time it is ran with the same factory.
-That way, you can use a counter to have more meaningful data.
-
-```typescript
-import { Factory, Sequence } from '@teamMay/factory';
-
-export class UserFactory extends Factory<User> {
-  entity = User;
-  attrs = {
-    customerId: new Sequence((nb: number) => `cust__abc__xyz__00${nb}`),
-  };
-}
-```
-
-### Post Generations
-
-To perform actions after an instance has been created, you can use the `PostGeneration` decorator.
-
-```typescript
-import { Factory, PostGeneration } from '@teamMay/factory';
-
-export class UserFactory extends Factory<User> {
-  ...
-
-  @PostGeneration()
-  postGenerationFunction() {
-    // perform an action after creation
-  }
-
-  @PostGeneration()
-  async actionOnCreatedUser(user: User) {
-    // do something with user
-  }
-}
 ```
