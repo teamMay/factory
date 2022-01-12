@@ -3,18 +3,17 @@
 This package makes testing easier by providing ways to create factories for your entities/models. Inspiration came from the [Factory Boy](https://github.com/FactoryBoy/factory_boy) 👦 python package and [Factory Girl](https://github.com/simonexmachina/factory-girl)
 👧.
 
-You also check these projects:
+[![npm version](https://badge.fury.io/js/@adrien-may%2Ffactory.svg)](https://badge.fury.io/js/@adrien-may%2Ffactory)
+![Build](https://github.com/teamMay/factory/actions/workflows/node.js.yml/badge.svg)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/teamMay/factory)
+
+You can also have a look at these projects:
 
 - [typeorm-seeding](https://github.com/jorgebodega/typeorm-seeding)
 - [typeorm-factories](https://github.com/owl1n/typeorm-factories)
 - [typeorm-factory](https://github.com/linnify/typeorm-factory)
 - [factory-girl-typeorm](https://github.com/wymsee/factory-girl-typeorm)
-
-So far, we only provide 2 adapters, others might be added later.
-
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/teamMay/factory)
-![Build](https://github.com/teamMay/factory/actions/workflows/node.js.yml/badge.svg)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 ## Installation
 
