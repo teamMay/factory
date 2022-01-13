@@ -1,10 +1,14 @@
 # Changelog
 
-## v0.0.2 (2022/01/13)
+## v0.0.3 (2022/01/13)
 
 ### Changes
 
 * 🚸 Factory: Allow to pass entity key even if absent from factory in .create/.build input
+
+## v0.0.2
+
+❌ This version has been removed from the repository.
 
 ## v0.0.1 (2022/01/12)
 
