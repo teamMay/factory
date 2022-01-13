@@ -93,20 +93,19 @@ export abstract class Factory<T> {
    */
   private async createInstance(values: Partial<T>, { saveSubFactories }: { saveSubFactories: boolean }): Promise<T> {
     const instance: T = new this.entity();
+    const attrs = { ...this.attrs, ...values };
 
     // Fill values (expect lazy ones)
     await Promise.all(
-      Object.entries(this.attrs).map(async ([key, value]) => {
-        // Take overridden values first if provided, values from the defined factory otherwise
-        const _value = Object.prototype.hasOwnProperty.call(values, key) ? values[key as keyof T] : value;
-        const resolvedValue = await Factory.resolveValue(_value, { saveSubFactories });
+      Object.entries(attrs).map(async ([key, value]) => {
+        const resolvedValue = await Factory.resolveValue(value, { saveSubFactories });
         Object.assign(instance, { [key]: resolvedValue });
       }),
     );
 
     // Fill lazy values with instance as a reference
     await Promise.all(
-      Object.entries(this.attrs).map(async ([key, value]) => {
+      Object.entries(attrs).map(async ([key, value]) => {
         if (value instanceof LazyAttribute || value instanceof LazySequence) {
           Object.assign(instance, { [key]: await value.resolve(instance) });
         }

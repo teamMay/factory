@@ -2,9 +2,11 @@ import { CookFactory, LazyCookFactory, LazySequenceCookFactory } from './factori
 import { RestaurantFactory } from './factories/restaurant.factory';
 import { Restaurant } from './entities/Restaurant';
 import { Cook } from './entities/Cook';
+import { TownFactory } from './factories/town.factory';
 
 describe('Factory with default adapter', () => {
   const restaurantFactory = new RestaurantFactory();
+  const townFactory = new TownFactory();
   const cookFactory = new CookFactory();
   const lazyCookFactory = new LazyCookFactory();
   const lazySequenceCookFactory = new LazySequenceCookFactory();
@@ -88,6 +90,18 @@ describe('Factory with default adapter', () => {
       expect(restaurants.length).toEqual(restaurantTotal);
       expect(restaurants[restaurantTotal - 1]).toBeInstanceOf(Restaurant);
       expect(restaurants[restaurantTotal - 1].cooks).toBeInstanceOf(Array);
+    });
+
+    it('uses data from overridden options EVEN IF not present in the factory', async () => {
+      // Given
+      const description = 'A nice town';
+      const overrideFactoryValues = { description };
+
+      // When
+      const town = await townFactory.create(overrideFactoryValues);
+
+      // Then
+      expect(town.description).toEqual(description);
     });
   });
 
