@@ -7,6 +7,7 @@ This package makes testing easier by providing ways to create factories for your
 ![Build](https://github.com/teamMay/factory/actions/workflows/node.js.yml/badge.svg)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/teamMay/factory)
+[![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 You can also have a look at these projects:
 
