@@ -103,6 +103,14 @@ describe('Factory with default adapter', () => {
       // Then
       expect(town.description).toEqual(description);
     });
+
+    it('access values from attrs', async () => {
+      // Given
+      const cook = await cookFactory.build();
+
+      // Then
+      expect(cook.mail).toEqual('Ramsay@email-fake.com');
+    });
   });
 
   describe('Sequence', () => {
@@ -112,7 +120,7 @@ describe('Factory with default adapter', () => {
 
       // Then
       cooks.forEach((cook: Cook, index: number) => {
-        expect(cook.firstName).toEqual(`Gordon clone n°${index}`);
+        expect(cook.firstName).toEqual(`Gordon clone n°${index + 1}`);
       });
     });
   });
