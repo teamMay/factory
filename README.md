@@ -47,7 +47,7 @@ To declare a factory, you have to provide:
 The adapter allows you to persist your data. If you want to save your data in a database via typeorm, you can use the `TypeormAdapter`. Default Adapter is `ObjectAdapter` and does not persist anything. You can create your own adapter to persist your data the way you want.
 
 ```typescript
-import { Factory } from '@teamMay/factory';
+import { Factory } from '@adrien-may/factory';
 
 export class UserFactory extends Factory<User> {
   entity = User;
@@ -75,7 +75,7 @@ To ease testing, this library provides a `TypeormFactory` class.
 The following example shows how to use them:
 
 ```typescript
-import { Factory, TypeormFactory, TypeormAdapter } from '@teamMay/factory';
+import { Factory, TypeormFactory, TypeormAdapter } from '@adrien-may/factory';
 
 export class UserFactory extends Factory<User> {
   entity = User;
@@ -105,7 +105,7 @@ It is fairly common for entities to have relations (manyToOne, oneToMany, oneToO
 If one user has a profile entity linked to it: we use the `UserFactory` as a SubFactory on the `ProfileFactory`
 
 ```typescript
-import { Factory, SubFactory } from '@teamMay/factory';
+import { Factory, SubFactory } from '@adrien-may/factory';
 import { UseFactory } from './user.factory.ts'; // factory naming is free of convention here, don't worry about it.
 
 export class ProfileFactory extends Factory<Profile> {
@@ -123,7 +123,7 @@ Sequences allow you to get an incremental value each time it is ran with the sam
 That way, you can use a counter to have more meaningful data.
 
 ```typescript
-import { Factory, Sequence } from '@teamMay/factory';
+import { Factory, Sequence } from '@adrien-may/factory';
 
 export class UserFactory extends Factory<User> {
   entity = User;
@@ -139,7 +139,7 @@ Lazy attributes are useful when you want to generate a value based on the instan
 They are resolved after every other attribute but BEFORE saving the entity. For any action "post save", use the PostGenerate hook.
 
 ```typescript
-import { Factory, LazyAttribute } from '@teamMay/factory';
+import { Factory, LazyAttribute } from '@adrien-may/factory';
 
 export class UserFactory extends Factory<User> {
   entity = User;
@@ -155,7 +155,7 @@ export class UserFactory extends Factory<User> {
 Lazy sequences combine the power of sequences and lazy attributes. The callback is called with an incremental number and the instance being created.
 
 ```typescript
-import { Factory, LazySequence } from '@teamMay/factory';
+import { Factory, LazySequence } from '@adrien-may/factory';
 
 export class UserFactory extends Factory<User> {
   entity = User;
@@ -171,7 +171,7 @@ export class UserFactory extends Factory<User> {
 To perform actions after an instance has been created, you can use the `PostGeneration` decorator.
 
 ```typescript
-import { Factory, PostGeneration } from '@teamMay/factory';
+import { Factory, PostGeneration } from '@adrien-may/factory';
 
 export class UserFactory extends Factory<User> {
   ...
@@ -197,7 +197,7 @@ To generate pseudo random data for our factories, we can take advantage of libra
 - ...
 
 ```typescript
-import { TypeormFactory } from '@teamMay/factory';
+import { TypeormFactory } from '@adrien-may/factory';
 import Chance from 'chance';
 
 const chance = new Chance();
