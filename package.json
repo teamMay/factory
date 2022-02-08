@@ -23,7 +23,9 @@
     "factories",
     "typeorm",
     "strapi",
-    "tests"
+    "tests",
+    "fixtures",
+    "fixtures-replacement"
   ],
   "homepage": "https://github.com/teamMay/factory#readme",
   "license": "ISC",
