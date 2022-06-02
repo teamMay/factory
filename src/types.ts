@@ -1,3 +1,4 @@
+import type { DataSource } from 'typeorm';
 import { Adapter } from './adapters/adapter';
 import { Factory } from './factory';
 import { LazyAttribute } from './lazy-attribute';
@@ -5,7 +6,7 @@ import { LazySequence } from './lazy-sequence';
 import { Sequence } from './sequence';
 import { SubFactory } from './subfactory';
 
-export type FactoryClass<T> = new () => Factory<T>;
+export type FactoryClass<T> = new (dataSource?: DataSource) => Factory<T>;
 export type Constructable<T> = new () => T;
 export type ConstructableAttrs<T> = {
   [K in keyof Partial<T>]:

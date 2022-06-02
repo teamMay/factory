@@ -7,6 +7,6 @@ export class CookFactory extends TypeormFactory<Cook> {
   attrs = {
     firstName: () => 'Gordon',
     lastName: 'Ramsay',
-    restaurant: new SubFactory(RestaurantFactory),
+    restaurant: new SubFactory(new RestaurantFactory(this.dataSource)),
   };
 }

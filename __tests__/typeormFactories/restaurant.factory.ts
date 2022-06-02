@@ -1,19 +1,22 @@
-import { Factory, PostGeneration } from '../../src';
-import { TypeormAdapter } from '../../src/adapters';
+import { DataSource } from 'typeorm';
+import { PostGeneration, TypeormFactory } from '../../src';
 import { Restaurant } from '../typeormEntities/Restaurant';
 import { CookFactory } from './cook.factory';
 
-export class RestaurantFactory extends Factory<Restaurant> {
+export class RestaurantFactory extends TypeormFactory<Restaurant> {
   entity = Restaurant;
   attrs = {
     name: 'Beau gosse Kebab',
     open: true,
     description: 'Best kebab in Caen',
   };
-  adapter = new TypeormAdapter();
+
+  constructor(dataSource?: DataSource) {
+    super(dataSource);
+  }
 
   @PostGeneration()
   async addCooks(restaurant: Restaurant) {
-    restaurant.cooks = await new CookFactory().createMany(3, { restaurant });
+    restaurant.cooks = await new CookFactory(this.dataSource).createMany(3, { restaurant });
   }
 }

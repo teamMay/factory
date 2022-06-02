@@ -8,7 +8,7 @@ export class CookFactory extends Factory<Cook> {
     firstName: new Sequence((nb) => `Gordon clone n°${nb}`),
     lastName: 'Ramsay',
     mail: () => `${this.attrs.lastName}@email-fake.com`,
-    restaurant: new SubFactory(RestaurantFactory),
+    restaurant: new SubFactory(new RestaurantFactory()),
   };
 }
 
@@ -18,7 +18,7 @@ export class LazyCookFactory extends Factory<Cook> {
     firstName: new Sequence((nb) => `Gordon${nb}`),
     lastName: 'Ramsay',
     mail: new LazyAttribute((instance: Cook) => `${instance.firstName}@yumyum.com`),
-    restaurant: new SubFactory(RestaurantFactory, { name: 'Starbucks' }),
+    restaurant: new SubFactory(new RestaurantFactory(), { name: 'Starbucks' }),
   };
 }
 
@@ -28,6 +28,6 @@ export class LazySequenceCookFactory extends Factory<Cook> {
     firstName: 'Gordon',
     lastName: 'Ramsay',
     mail: new LazySequence((nb: number, instance: Cook) => `${instance.firstName}${nb}@yummy.com`),
-    restaurant: new SubFactory(RestaurantFactory, { name: 'Starbucks' }),
+    restaurant: new SubFactory(new RestaurantFactory(), { name: 'Starbucks' }),
   };
 }

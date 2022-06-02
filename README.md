@@ -4,17 +4,18 @@ This package makes testing easier by providing ways to create factories for your
 👧.
 
 [![npm version](https://badge.fury.io/js/@adrien-may%2Ffactory.svg)](https://badge.fury.io/js/@adrien-may%2Ffactory)
+
 ![Build](https://github.com/teamMay/factory/actions/workflows/node.js.yml/badge.svg)
+
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/teamMay/factory)
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 You can also have a look at these projects:
 
-- [typeorm-seeding](https://github.com/jorgebodega/typeorm-seeding)
-- [typeorm-factories](https://github.com/owl1n/typeorm-factories)
-- [typeorm-factory](https://github.com/linnify/typeorm-factory)
-- [factory-girl-typeorm](https://github.com/wymsee/factory-girl-typeorm)
+* [typeorm-seeding](https://github.com/jorgebodega/typeorm-seeding)
+* [typeorm-factories](https://github.com/owl1n/typeorm-factories)
+* [typeorm-factory](https://github.com/linnify/typeorm-factory)
+* [factory-girl-typeorm](https://github.com/wymsee/factory-girl-typeorm)
 
 ## Installation
 
@@ -40,11 +41,11 @@ This section provides a quick overview of what you can achieve with this package
 
 To declare a factory, you have to provide:
 
-- An adapter: ObjectAdapter, TypeormAdapter, ...
-- An entity: the model you are building
-- The fields to be populated (theirs default values or ways to generate them)
+* An adapter: ObjectAdapter, TypeormAdapter, ...
+* An entity: the model you are building
+* The fields to be populated (theirs default values or ways to generate them)
 
-The adapter allows you to persist your data. If you want to save your data in a database via typeorm, you can use the `TypeormAdapter`. Default Adapter is `ObjectAdapter` and does not persist anything. You can create your own adapter to persist your data the way you want.
+The adapter allows you to persist your data. If you want to save your data in a database via typeorm, you can use the `TypeormAdapter` . Default Adapter is `ObjectAdapter` and does not persist anything. You can create your own adapter to persist your data the way you want.
 
 ```typescript
 import { Factory } from '@adrien-may/factory';
@@ -69,7 +70,7 @@ export class AdminUserFactory extends Factory<User> {
 
 #### Adapters
 
-You can provide your own adapter to extend this library. This library provides for now `ObjectAdapter` (default) and `TypeormAdapter`.
+You can provide your own adapter to extend this library. This library provides for now `ObjectAdapter` (default) and `TypeormAdapter` .
 To ease testing, this library provides a `TypeormFactory` class.
 
 The following example shows how to use them:
@@ -192,9 +193,9 @@ export class UserFactory extends Factory<User> {
 
 To generate pseudo random data for our factories, we can take advantage of libraries like:
 
-- [Fakerjs](https://github.com/MilosPaunovic/community-faker)
-- [Chancejs](https://chancejs.com)
-- ...
+* [Fakerjs](https://github.com/MilosPaunovic/community-faker)
+* [Chancejs](https://chancejs.com)
+* ...
 
 ```typescript
 import { TypeormFactory } from '@adrien-may/factory';
@@ -222,11 +223,27 @@ We can use our factories to create new instances of entities:
 const userFactory = new UserFactory();
 ```
 
+For typeorm factories you should either set a default factory using:
+
+```typescript
+import { setDefaultFactory } from '@adrien-may/factory';
+{...}
+setDefaultDataSource(typeormDatasource)
+{...}
+const userFactory = new UserFactory();
+```
+
+Or set a datasource for each instances using:
+
+```typescript
+const userFactory = new UserFactory(typeormDatasource);
+```
+
 The factory and its adapters expose some functions:
 
-- build: to create an object (and eventually generate data / subFactories)
-- create: same as make but persist object in database via ORM "save" method
-- buildMany and createMany allow to create several instances in one go
+* build: to create an object (and eventually generate data / subFactories)
+* create: same as make but persist object in database via ORM "save" method
+* buildMany and createMany allow to create several instances in one go
 
 ```typescript
 const user: User = await userFactory.create();

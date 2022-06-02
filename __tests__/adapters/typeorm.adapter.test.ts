@@ -1,6 +1,5 @@
-import { getRepository } from 'typeorm';
-
 import { TypeormAdapter } from '../../src/adapters/typeorm.adapter';
+import { dataSource } from '../setup/jest.setup';
 import { Restaurant } from '../typeormEntities/Restaurant';
 
 jest.mock('typeorm');
@@ -8,7 +7,7 @@ jest.mock('typeorm');
 describe('TypeormAdapter', () => {
   it('should create an instance', () => {
     // Given
-    const adapter = new TypeormAdapter();
+    const adapter = new TypeormAdapter(dataSource);
 
     // Then
     expect(adapter).toBeTruthy();
@@ -19,19 +18,22 @@ describe('TypeormAdapter', () => {
   it('saves method should call getRepository from typeorm and save', () => {
     // Given
     const entity = Restaurant;
-    const adapter = new TypeormAdapter();
     const instance = new entity();
     const save = jest.fn().mockReturnValue(instance);
+    const mockDataSource = {
+      getRepository: jest.fn().mockReturnValue({ save }),
+    };
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    getRepository.mockReturnValue({ save });
+    const adapter = new TypeormAdapter(mockDataSource);
 
     // When
     const result = adapter.save(instance, entity);
 
     // Then
     expect(result).toBe(instance);
-    expect(getRepository).toHaveBeenCalledWith(entity);
+    expect(mockDataSource.getRepository).toHaveBeenCalledWith(entity);
     expect(save).toHaveBeenCalledWith(instance);
   });
 });

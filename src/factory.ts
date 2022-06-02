@@ -1,4 +1,4 @@
-import { ObjectAdapter, TypeormAdapter } from './adapters';
+import { ObjectAdapter } from './adapters';
 import { Adapter } from './adapters/adapter';
 import { factoryStorage } from './factory-storage';
 import { Sequence } from './sequence';
@@ -21,6 +21,12 @@ export abstract class Factory<T> {
    * Adapter used to save objects
    */
   protected adapter: Adapter = new ObjectAdapter();
+
+  /**
+   * Build a factory. Datasource is optional.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  constructor() {}
 
   /**
    * creates entity without persisting it in the database
@@ -135,10 +141,4 @@ export abstract class Factory<T> {
     }
   }
 }
-
-/**
- * This is a Factory with the typeormAdapter already set
- */
-export abstract class TypeormFactory<T> extends Factory<T> {
-  adapter = new TypeormAdapter();
-}
+export default Factory;

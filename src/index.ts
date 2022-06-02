@@ -1,4 +1,5 @@
 export * from './decorators';
+export * from './factories/typeormFactory';
 export * from './factory';
 export * from './factory-storage';
 export * from './lazy-attribute';

@@ -1,22 +1,21 @@
-import { createConnection, getConnection } from 'typeorm';
+import { DataSource } from 'typeorm';
 import { entities } from '../typeormEntities';
 
-beforeAll(
-  async () =>
-    await createConnection({
-      type: 'sqlite',
-      database: ':memory:',
-      dropSchema: true,
-      entities: entities,
-      synchronize: true,
-      logging: false,
-    }),
-);
+export const dataSource = new DataSource({
+  type: 'sqlite',
+  database: ':memory:',
+  dropSchema: true,
+  entities: entities,
+  synchronize: true,
+  logging: false,
+});
+
+beforeAll(async () => await dataSource.initialize());
 
 beforeEach(async () => {
-  await getConnection().synchronize(true);
+  await dataSource.synchronize(true);
 });
 
 afterAll(async () => {
-  await getConnection().close();
+  await dataSource.destroy();
 });
