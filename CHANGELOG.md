@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.0 (2022/06/28)
+
+### Changes
+
+🎉 New contributor: @matthieuMay (<https://github.com/matthieuMay>)
+
+* ⬆️ Migrate to typeorm 0.3 and remove peer dep
+* 🔧 Move to node 16 (LTS)
+* 🙈 DS_Store in gitignore
+* 📝 fix import origin in documentation
+
 ## v0.0.3 (2022/01/13)
 
 ### Changes
