@@ -2,7 +2,7 @@ import { getDefaultDataSource } from './factories/typeormFactory';
 import { Factory } from './factory';
 import { FactoryClass } from './types';
 
-export class SubFactory<T> {
+export class SubFactory<T extends { [key: string]: any }> {
   factory: Factory<T>;
   values: Partial<T> | undefined;
 

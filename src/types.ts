@@ -6,9 +6,9 @@ import { LazySequence } from './lazy-sequence';
 import { Sequence } from './sequence';
 import { SubFactory } from './subfactory';
 
-export type FactoryClass<T> = new (dataSource?: DataSource) => Factory<T>;
-export type Constructable<T> = new () => T;
-export type ConstructableAttrs<T> = {
+export type FactoryClass<T extends { [key: string]: any }> = new (dataSource?: DataSource) => Factory<T>;
+export type Constructable<T extends { [key: string]: any }> = new () => T;
+export type ConstructableAttrs<T extends { [key: string]: any }> = {
   [K in keyof Partial<T>]:
     | T[K]
     | Sequence<T[K]>

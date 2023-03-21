@@ -1,4 +1,4 @@
-import type { DataSource } from 'typeorm';
+import type { DataSource, ObjectLiteral } from 'typeorm';
 import { TypeormAdapter } from '../adapters';
 import { Factory } from '../factory';
 
@@ -13,7 +13,7 @@ export const setDefaultDataSource = (dataSource: DataSource) => {
 /**
  * This is a Factory with the typeormAdapter already set
  */
-export abstract class TypeormFactory<T> extends Factory<T> {
+export abstract class TypeormFactory<T extends ObjectLiteral> extends Factory<T> {
   adapter: TypeormAdapter;
   dataSource: DataSource;
   constructor(dataSource?: DataSource) {
