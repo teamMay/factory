@@ -80,7 +80,7 @@ describe('Test Factory with typeorm', () => {
 
         const createdCook = await dataSource
           .getRepository(Cook)
-          .findOne({ where: { id: cook.id }, relations: ['restaurant'] });
+          .findOne({ where: { id: cook.id }, relations: { restaurant: true } });
         expect(createdCook?.restaurant.id).toEqual(cook.restaurant.id);
       });
 
@@ -196,7 +196,7 @@ describe('Test Factory with typeorm', () => {
 
         const createdCook = await dataSource
           .getRepository(Cook)
-          .findOne({ where: { id: cook.id }, relations: ['restaurant'] });
+          .findOne({ where: { id: cook.id }, relations: { restaurant: true } });
         expect(createdCook?.restaurant.id).toEqual(cook.restaurant.id);
       });
 

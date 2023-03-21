@@ -7,7 +7,7 @@ import { SubFactory } from './subfactory';
 import { Constructable, ConstructableAttrs } from './types';
 import { LazySequence } from '.';
 
-export abstract class Factory<T> {
+export abstract class Factory<T extends { [key: string]: any }> {
   /**
    * The model/entity you wish to create a factory for
    */
@@ -23,9 +23,8 @@ export abstract class Factory<T> {
   protected adapter: Adapter = new ObjectAdapter();
 
   /**
-   * Build a factory. Datasource is optional.
+   * Build a factory.
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   constructor() {}
 
   /**
@@ -49,7 +48,7 @@ export abstract class Factory<T> {
   /**
    * persist instance (often via a database call)
    */
-  private async save<U>(instance: U): Promise<U> {
+  private async save<U extends { [key: string]: any }>(instance: U): Promise<U> {
     return this.adapter.save(instance, this.entity);
   }
 
@@ -99,7 +98,15 @@ export abstract class Factory<T> {
    */
   private async createInstance(values: Partial<T>, { saveSubFactories }: { saveSubFactories: boolean }): Promise<T> {
     const instance: T = new this.entity();
-    const attrs = { ...this.attrs, ...values };
+    const attrs: {
+      [key: string]:
+        | T[string]
+        | Sequence<T[string]>
+        | LazyAttribute<T[string], T>
+        | LazySequence<T[string], T>
+        | (() => T[string])
+        | SubFactory<T[string]>;
+    } = { ...this.attrs, ...values };
 
     // Fill values (expect lazy ones)
     await Promise.all(
