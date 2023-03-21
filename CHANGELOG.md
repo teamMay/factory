@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.2.0 (2023/03/21)
+
+### Changes
+
+**Breaking changes**:
+💥 Drop support for node 16, start support for node 18
+
+* ⬆️ Upgrade all deps
+* ⬆️ Migrate to node 18
+* 🏷️ Fix typing errors with migration
+
 ## v0.1.0 (2022/06/28)
 
 ### Changes
