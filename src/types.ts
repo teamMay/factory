@@ -12,7 +12,9 @@ export type ConstructableAttrs<T extends { [key: string]: any }> = {
   [K in keyof Partial<T>]:
     | T[K]
     | Sequence<T[K]>
+    | LazyAttribute<Promise<T[K]>, T>
     | LazyAttribute<T[K], T>
+    | LazySequence<Promise<T[K]>, T>
     | LazySequence<T[K], T>
     | (() => T[K])
     | SubFactory<T[K]>;

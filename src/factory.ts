@@ -98,15 +98,7 @@ export abstract class Factory<T extends { [key: string]: any }> {
    */
   private async createInstance(values: Partial<T>, { saveSubFactories }: { saveSubFactories: boolean }): Promise<T> {
     const instance: T = new this.entity();
-    const attrs: {
-      [key: string]:
-        | T[string]
-        | Sequence<T[string]>
-        | LazyAttribute<T[string], T>
-        | LazySequence<T[string], T>
-        | (() => T[string])
-        | SubFactory<T[string]>;
-    } = { ...this.attrs, ...values };
+    const attrs: ConstructableAttrs<T> = { ...this.attrs, ...values };
 
     // Fill values (expect lazy ones)
     await Promise.all(
