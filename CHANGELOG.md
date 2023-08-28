@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.1 (2023/08/28)
+
+* ⬆️ Upgrade all deps
+* ✨ Adding a first version of SECURITY.md file (quite empty for now)
+* ✏️ Correct typo in copyright in LICENSE
+* 🔧 Dependabot config: .github config
+
 ## v0.2.0 (2023/03/21)
 
 ### Changes
