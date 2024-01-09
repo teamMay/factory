@@ -1,6 +1,6 @@
 {
   "name": "@adrien-may/factory",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "🏭 Testing made easier with factories for your entities/models.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/teamMay/factory#readme",
   "license": "ISC",
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.1",
+    "@tsconfig/node20": "^20.1.2",
     "@types/jest": "^29.5.4",
     "@types/node": "^20.6.5",
     "@types/sinon": "^17.0.0",
