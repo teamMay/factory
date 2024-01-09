@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0 (2024/xx/xx)
+
+* ⬆️ Upgrade all deps
+* 💥 *BREAKING CHANGE* : Drop support for node 18, start support for node 20
+
 ## v0.2.1 (2023/08/28)
 
 * ⬆️ Upgrade all deps
