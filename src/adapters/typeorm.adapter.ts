@@ -1,4 +1,4 @@
-import type { DataSource, EntityTarget, ObjectLiteral } from 'typeorm';
+import type { DataSource, EntityTarget } from 'typeorm';
 import { Adapter } from './adapter';
 
 export class TypeormAdapter extends Adapter {
@@ -9,7 +9,8 @@ export class TypeormAdapter extends Adapter {
     this.dataSource = dataSource;
   }
 
-  save<T extends { [key: string]: any }>(instance: T, entity: EntityTarget<T>): Promise<T> {
-    return this.dataSource.getRepository(entity).save(instance);
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  save<T extends Record<string, any> | Record<string, any>[], E>(instance: T, entity: E): Promise<T> {
+    return this.dataSource.getRepository(entity as EntityTarget<T>).save(instance);
   }
 }

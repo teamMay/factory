@@ -6,9 +6,12 @@ import { LazySequence } from './lazy-sequence';
 import { Sequence } from './sequence';
 import { SubFactory } from './subfactory';
 
-export type FactoryClass<T extends { [key: string]: any }> = new (dataSource?: DataSource) => Factory<T>;
-export type Constructable<T extends { [key: string]: any }> = new () => T;
-export type ConstructableAttrs<T extends { [key: string]: any }> = {
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+export type FactoryClass<T extends Record<string, any>> = new (dataSource?: DataSource) => Factory<T>;
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+export type Constructable<T extends Record<string, any>> = new () => T;
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+export type ConstructableAttrs<T extends Record<string, any>> = {
   [K in keyof Partial<T>]:
     | T[K]
     | Sequence<T[K]>

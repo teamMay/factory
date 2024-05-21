@@ -7,7 +7,8 @@ import { SubFactory } from './subfactory';
 import { Constructable, ConstructableAttrs } from './types';
 import { LazySequence } from '.';
 
-export abstract class Factory<T extends { [key: string]: any }> {
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+export abstract class Factory<T extends Record<string, any>> {
   /**
    * The model/entity you wish to create a factory for
    */
@@ -48,7 +49,8 @@ export abstract class Factory<T extends { [key: string]: any }> {
   /**
    * persist instance (often via a database call)
    */
-  private async save<U extends { [key: string]: any }>(instance: U): Promise<U> {
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  private async save<U extends Record<string, any> | Record<string, any>[]>(instance: U): Promise<U> {
     return this.adapter.save(instance, this.entity);
   }
 

@@ -1,2 +1,3 @@
-export * from './typeorm.adapter';
 export * from './object.adapter';
+export * from './strapi.adapter';
+export * from './typeorm.adapter';
