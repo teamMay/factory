@@ -2,7 +2,8 @@ import { getDefaultDataSource } from './factories/typeormFactory';
 import { Factory } from './factory';
 import { FactoryClass } from './types';
 
-export class SubFactory<T extends { [key: string]: any }> {
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+export class SubFactory<T extends Record<string, any>> {
   factory: Factory<T>;
   values: Partial<T> | undefined;
 

@@ -7,7 +7,8 @@ import { SubFactory } from './subfactory';
 import { Constructable, ConstructableAttrs } from './types';
 import { LazySequence } from '.';
 
-export abstract class Factory<T extends { [key: string]: any }> {
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+export abstract class Factory<T extends Record<string, any>> {
   /**
    * The model/entity you wish to create a factory for
    */
@@ -31,7 +32,7 @@ export abstract class Factory<T extends { [key: string]: any }> {
    * creates entity without persisting it in the database
    */
   async build(
-    values: Partial<T> = {},
+    values: ConstructableAttrs<T> | {} = {},
     { saveSubFactories }: { saveSubFactories: boolean } = { saveSubFactories: false },
   ): Promise<T> {
     return this.createInstance(values, { saveSubFactories });
@@ -48,7 +49,8 @@ export abstract class Factory<T extends { [key: string]: any }> {
   /**
    * persist instance (often via a database call)
    */
-  private async save<U extends { [key: string]: any }>(instance: U): Promise<U> {
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  private async save<U extends Record<string, any> | Record<string, any>[]>(instance: U): Promise<U> {
     return this.adapter.save(instance, this.entity);
   }
 
@@ -70,7 +72,7 @@ export abstract class Factory<T extends { [key: string]: any }> {
   /**
    * build and persist entity
    */
-  async create(values: Partial<T> = {}): Promise<T> {
+  async create(values: ConstructableAttrs<T> | {} = {}): Promise<T> {
     const instance: T = await this.build(values, { saveSubFactories: true });
     const savedInstance = await this.save(instance);
     await this.applyPostGenerators(savedInstance);
@@ -80,7 +82,7 @@ export abstract class Factory<T extends { [key: string]: any }> {
   /**
    * build and persist entity several entities at once
    */
-  async createMany(count: number, values: Partial<T> = {}): Promise<T[]> {
+  async createMany(count: number, values: ConstructableAttrs<T> | {} = {}): Promise<T[]> {
     const instances: T[] = Array.from({ length: count });
     for (let index = 0; index < instances.length; index++) {
       instances[index] = await this.createInstance(values, { saveSubFactories: true });
@@ -96,7 +98,10 @@ export abstract class Factory<T extends { [key: string]: any }> {
    * Then: resolve lazy attributes
    * Return instance
    */
-  private async createInstance(values: Partial<T>, { saveSubFactories }: { saveSubFactories: boolean }): Promise<T> {
+  private async createInstance(
+    values: ConstructableAttrs<T> | {},
+    { saveSubFactories }: { saveSubFactories: boolean },
+  ): Promise<T> {
     const instance: T = new this.entity();
     const attrs: ConstructableAttrs<T> = { ...this.attrs, ...values };
 
