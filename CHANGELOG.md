@@ -1,8 +1,9 @@
 # Changelog
 
-## v0.3.0 (2024/xx/xx)
+## v0.3.0 (2024/05/30)
 
 * ⬆️ Upgrade all deps
+* 🏷️ Evolve typing to allow usage of LazyAttribute, Sequence etc... outside of factory definition and directly within factories instances.
 * 💥 *BREAKING CHANGE* : Drop support for node 18, start support for node 20
 
 ## v0.2.1 (2023/08/28)
