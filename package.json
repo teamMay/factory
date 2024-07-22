@@ -35,7 +35,7 @@
     "@types/node": "^20.12.13",
     "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "8.0.0-alpha.40",
-    "@typescript-eslint/parser": "8.0.0-alpha.40",
+    "@typescript-eslint/parser": "8.0.0-alpha.50",
     "codecov": "^3.8.3",
     "eslint": "9.6.0",
     "eslint-config-prettier": "^9.1.0",
