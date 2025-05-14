@@ -1,8 +1,9 @@
 import { SubFactory } from '../src';
 import { RestaurantFactory } from './factories/restaurant.factory';
+import { CookFactory } from './typeormFactories/cook.factory';
 
 describe('SubFactory', () => {
-  it('is a wrapper which saves a factory and values to be overriden', () => {
+  it('is a wrapper which saves a factory and values to be overridden', () => {
     // Given
     const factory = RestaurantFactory;
     const values = { name: "Rest'o'rant" };
@@ -25,5 +26,19 @@ describe('SubFactory', () => {
     // Then
     expect(subFactory.factory).toBeInstanceOf(factory);
     expect(subFactory.values).toEqual(values);
+  });
+  it('throws if no dataSource is provided and factory expects one', () => {
+    expect(() => new SubFactory(CookFactory)).toThrow(
+      'No dataSource provided. You should either provide a default one or pass one in the constructor',
+    );
+  });
+  it('instantiates the factory with the default dataSource if defined', () => {
+    // Arrange: mock getDefaultDataSource to return a dummy value
+    const dummyDataSource = { foo: 'bar' };
+    jest.spyOn(require('../src/factories/typeormFactory'), 'getDefaultDataSource').mockReturnValue(dummyDataSource);
+    // When
+    const subFactory = new SubFactory(CookFactory);
+    // Then
+    expect(subFactory.factory).toBeInstanceOf(CookFactory);
   });
 });
