@@ -7,6 +7,8 @@ This package makes testing easier by providing ways to create factories for your
 
 ![Build](https://github.com/teamMay/factory/actions/workflows/node.js.yml/badge.svg)
 
+[![codecov](https://codecov.io/gh/teamMay/factory/branch/main/graph/badge.svg)](https://codecov.io/gh/teamMay/factory)
+
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
@@ -189,7 +191,7 @@ export class UserFactory extends Factory<User> {
 }
 ```
 
-### Fuzzy generation with Fakerjs/Chancejs/...
+### Fuzzy generation with Fakerjs/Chancejs/
 
 To generate pseudo random data for our factories, we can take advantage of libraries like:
 
