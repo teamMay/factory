@@ -19,14 +19,11 @@ ${message}
 For more information, check script in .husky/commit-msg
 or check the commit message policy documentation at https://github.com/teamMay/onboarding/blob/develop/generic.md#commit-message-policy`;
 
-const commitMessageRegexp = new RegExp(
-  '^(new|chg|fix):s*' + emojiRegex.source + 's*.*',
-  'g',
-);
+const commitMessageRegexp = new RegExp('^(new|chg|fix):s*' + emojiRegex.source + 's*.*', 'g');
 const isMessageValid = commitMessageRegexp.test(message);
 
 if (!isMessageValid) {
-  console.log(errorMessage);
+  console.debug(errorMessage);
   exitCode = 1;
 }
 process.exit(exitCode);
