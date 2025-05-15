@@ -10,8 +10,6 @@ import { RestaurantFactory } from './typeormFactories/restaurant.factory';
 import { CookFactory } from './typeormFactories/cook.factory';
 import { dataSource } from './setup/jest.setup';
 
-beforeAll(async () => {});
-
 describe('Test Factory with typeorm', () => {
   describe('argument datasource', () => {
     const restaurantFactory = new RestaurantFactory(dataSource);

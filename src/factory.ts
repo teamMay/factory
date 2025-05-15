@@ -7,12 +7,15 @@ import { SubFactory } from './subfactory';
 import { Constructable, ConstructableAttrs } from './types';
 import { LazySequence } from '.';
 
+class EmptyClass {}
+
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export abstract class Factory<T extends Record<string, any>> {
   /**
-   * The model/entity you wish to create a factory for
+   * The model/entity you wish to create a factory for.
+   * By default, returns EmptyClass which offer no functionality but is compatible with the Factory class.
    */
-  abstract get entity(): Constructable<T>;
+  protected entity: Constructable<T> = EmptyClass as Constructable<T>;
   /**
    * List of your entity default fields populated by the factory
    */

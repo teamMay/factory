@@ -44,7 +44,7 @@ This section provides a quick overview of what you can achieve with this package
 To declare a factory, you have to provide:
 
 * An adapter: ObjectAdapter, TypeormAdapter, ...
-* An entity: the model you are building
+* An entity [Optional without typeorm]: the model you are building
 * The fields to be populated (theirs default values or ways to generate them)
 
 The adapter allows you to persist your data. If you want to save your data in a database via typeorm, you can use the `TypeormAdapter` . Default Adapter is `ObjectAdapter` and does not persist anything. You can create your own adapter to persist your data the way you want.
@@ -52,7 +52,14 @@ The adapter allows you to persist your data. If you want to save your data in a 
 ```typescript
 import { Factory } from '@adrien-may/factory';
 
-export class UserFactory extends Factory<User> {
+// Object/Entity to create
+class User {
+  email: string;
+  role: string;
+}
+
+// Factories
+class UserFactory extends Factory<User> {
   entity = User;
   attrs = {
     email: 'adrien@factory.com',
@@ -61,42 +68,143 @@ export class UserFactory extends Factory<User> {
   // By default, adapter is ObjectAdapter
 }
 
-export class AdminUserFactory extends Factory<User> {
+class AdminUserFactory extends Factory<User> {
   entity = User;
   attrs = {
     email: 'adrien@factory.com',
     role: 'admin',
+  };
+}
+
+// Usage
+const adminFactory = new AdminUserFactory();
+const admin1 = adminFactory.create();
+const admins = adminFactory.createMany(5);
+```
+
+##### Typeorm
+
+```typescript
+import { Factory, TypeormFactory, TypeormAdapter } from '@adrien-may/factory';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+const dataSource = new DataSource({
+  type: 'sqlite',
+  database: ':memory:',
+  ... // other typeorm options
+});
+
+@Entity()
+class User {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column('text')
+  email: string;
+}
+
+export class UserFactory extends TypeormFactory<User> {
+  entity = User;
+  attrs = {
+    email: 'adrien@factory.com',
+  };
+}
+
+// Usage
+const userFactory = new UserFactory(dataSource);
+const user = userFactory.create();
+const users = userFactory.createMany(5);
+```
+
+##### Object and interfaces
+
+You could use directly the factory without a defined entity and provide only an interface.
+
+```typescript
+import { Factory } from '@adrien-may/factory';
+
+interface User {
+  name: string;
+}
+
+class UserFactory extends Factory<User> {
+  // No entity defined
+  attrs = {
+    name: 'John Doe',
+  };
+}
+
+// Usage
+const userFactory = new UserFactory();
+const user = userFactory.create();
+const users = userFactory.createMany(5);
+```
+
+#### Fuzzy generation with Fakerjs/Chancejs/
+
+To generate pseudo random data for our factories, we can take advantage of libraries like:
+
+* [Fakerjs](https://github.com/MilosPaunovic/community-faker)
+* [Chancejs](https://chancejs.com)
+* ...
+
+```typescript
+import { TypeormFactory } from '@adrien-may/factory';
+import Chance from 'chance';
+
+const chance = new Chance();
+
+export class ProfileFactory extends TypeormFactory<Profile> {
+  entity = Profile;
+  attrs = {
+    name: () => chance.name(),
+    email: () => chance.email(),
+    description: () => chance.paragraph({ sentences: 5 }),
   };
 }
 ```
 
-#### Adapters
+Note: Faker/Change are not included in this library. We only use the fact that a function passed to `attrs` is called every time a factory is created. Thus, you can use Faker/Chancejs to generate data.
 
-You can provide your own adapter to extend this library. This library provides for now `ObjectAdapter` (default) and `TypeormAdapter` .
-To ease testing, this library provides a `TypeormFactory` class.
+#### Exploiting our created factories
 
-The following example shows how to use them:
+We can use our factories to create new instances of entities:
 
 ```typescript
-import { Factory, TypeormFactory, TypeormAdapter } from '@adrien-may/factory';
+const userFactory = new UserFactory();
+```
 
-export class UserFactory extends Factory<User> {
-  entity = User;
-  attrs = {
-    email: 'adrien@factory.com',
-    role: 'basic',
-  };
-  adapter = TypeormAdapter();
-}
+For typeorm factories you should either set a default factory using:
 
-// Same as:
-export class TypeormUserFactory extends TypeormFactory<User> {
-  entity = User;
-  attrs = {
-    email: 'adrien@factory.com',
-    role: 'admin',
-  };
-}
+```typescript
+import { setDefaultFactory } from '@adrien-may/factory';
+{...}
+setDefaultDataSource(typeormDatasource)
+{...}
+const userFactory = new UserFactory();
+```
+
+Or set a datasource for each instances using:
+
+```typescript
+const userFactory = new UserFactory(typeormDatasource);
+```
+
+The factory and its adapters expose some functions:
+
+* build: to create an object (and eventually generate data / subFactories)
+* create: same as make but persist object in database via ORM "save" method
+* buildMany and createMany allow to create several instances in one go
+
+```typescript
+const user: User = await userFactory.create();
+const users: User[] = await userFactory.createMany(5);
+```
+
+To override factory default attributes, add them as parameter to the create function:
+
+```typescript
+const user: User = await userFactory.create({ email: 'adrien@example.com' });
 ```
 
 ### SubFactories
@@ -191,69 +299,31 @@ export class UserFactory extends Factory<User> {
 }
 ```
 
-### Fuzzy generation with Fakerjs/Chancejs/
+#### Adapters
 
-To generate pseudo random data for our factories, we can take advantage of libraries like:
+You can provide your own adapter to extend this library. This library provides for now `ObjectAdapter` (default) and `TypeormAdapter` .
+To ease testing, this library provides a `TypeormFactory` class.
 
-* [Fakerjs](https://github.com/MilosPaunovic/community-faker)
-* [Chancejs](https://chancejs.com)
-* ...
+The following example shows how to use them:
 
 ```typescript
-import { TypeormFactory } from '@adrien-may/factory';
-import Chance from 'chance';
+import { Factory, TypeormFactory, TypeormAdapter } from '@adrien-may/factory';
 
-const chance = new Chance();
-
-export class ProfileFactory extends TypeormFactory<Profile> {
-  entity = Profile;
+export class UserFactory extends Factory<User> {
+  entity = User;
   attrs = {
-    name: () => chance.name(),
-    email: () => chance.email(),
-    description: () => chance.paragraph({ sentences: 5 }),
+    email: 'adrien@factory.com',
+    role: 'basic',
+  };
+  adapter = TypeormAdapter();
+}
+
+// Same as:
+export class TypeormUserFactory extends TypeormFactory<User> {
+  entity = User;
+  attrs = {
+    email: 'adrien@factory.com',
+    role: 'admin',
   };
 }
-```
-
-Note: Faker/Change are not included in this library. We only use the fact that a function passed to `attrs` is called every time a factory is created. Thus, you can use Faker/Chancejs to generate data.
-
-#### Exploiting our created factories
-
-We can use our factories to create new instances of entities:
-
-```typescript
-const userFactory = new UserFactory();
-```
-
-For typeorm factories you should either set a default factory using:
-
-```typescript
-import { setDefaultFactory } from '@adrien-may/factory';
-{...}
-setDefaultDataSource(typeormDatasource)
-{...}
-const userFactory = new UserFactory();
-```
-
-Or set a datasource for each instances using:
-
-```typescript
-const userFactory = new UserFactory(typeormDatasource);
-```
-
-The factory and its adapters expose some functions:
-
-* build: to create an object (and eventually generate data / subFactories)
-* create: same as make but persist object in database via ORM "save" method
-* buildMany and createMany allow to create several instances in one go
-
-```typescript
-const user: User = await userFactory.create();
-const users: User[] = await userFactory.createMany(5);
-```
-
-To override factory default attributes, add them as parameter to the create function:
-
-```typescript
-const user: User = await userFactory.create({ email: 'adrien@example.com' });
 ```
