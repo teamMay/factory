@@ -1,5 +1,5 @@
 import { CookFactory, LazyCookFactory, LazySequenceCookFactory } from './factories/cook.factory';
-import { RestaurantFactory } from './factories/restaurant.factory';
+import { PizzeriaFactory, PizzeriaWithChefFactory, RestaurantFactory } from './factories/restaurant.factory';
 import { Restaurant } from './entities/Restaurant';
 import { Cook } from './entities/Cook';
 import { TownFactory } from './factories/town.factory';
@@ -10,8 +10,10 @@ describe('Factory with default adapter', () => {
   const cookFactory = new CookFactory();
   const lazyCookFactory = new LazyCookFactory();
   const lazySequenceCookFactory = new LazySequenceCookFactory();
+  const pizzeriaFactory = new PizzeriaFactory();
+  const pizzeriaWithChefFactory = new PizzeriaWithChefFactory();
 
-  describe('basic usage', () => {
+  describe('Basic usage', () => {
     it('creates entity (not persisted) with default values when no attributes specified', async () => {
       // Given
       const values = {};
@@ -165,6 +167,36 @@ describe('Factory with default adapter', () => {
       // Then
       expect(cook1.mail).toEqual('Gordon0@yummy.com');
       expect(cook2.mail).toEqual('Gordon1@yummy.com');
+    });
+  });
+
+  describe('Factory without entity (from an interface)', () => {
+    it('should build an object with the default values', async () => {
+      // Given
+      const luigiName = 'Luigi';
+      const marioName = 'Mario';
+
+      // When
+      const luigi = await pizzeriaFactory.create({ name: luigiName });
+      const marioChef = await pizzeriaWithChefFactory.create({ name: marioName });
+
+      // Then
+      expect(luigi.name).toEqual(luigiName);
+      expect(marioChef.name).toEqual(marioName);
+    });
+    it('should build an object with the default values and a subfactory', async () => {
+      // Given
+      const luigiName = 'Luigi';
+      const marioName = 'Mario';
+
+      // When
+      const luigi = await pizzeriaFactory.create({ name: luigiName });
+      const marioChef = await pizzeriaWithChefFactory.create({ name: marioName });
+
+      // Then
+      expect(luigi.name).toEqual(luigiName);
+      expect(marioChef.name).toEqual(marioName);
+      expect(marioChef.chef).toBeInstanceOf(Cook);
     });
   });
 });
