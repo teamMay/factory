@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.0 (2025/05/16)
+
+* 💥 *BREAKING CHANGE* : minimum node version expected : 20.18
+
+### New
+
+* ✨ Add support to declare factory without entity and interface only
+
+### Internals
+
+* ⬆️ Upgrade all deps
+* 💚 codecov integration
+
 ## v0.3.0 (2024/05/30)
 
 * ⬆️ Upgrade all deps
