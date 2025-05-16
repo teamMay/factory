@@ -1,8 +1,17 @@
 # Changelog
 
+## v1.0.1 (2025/05/16)
+
+This build fixes the issue with the dist folder. All files are now in the root of the dist folder.
+
+## Internals
+
+* ⬆️ Minor upgrade of all deps (typeorm)
+
 ## v1.0.0 (2025/05/16)
 
 * 💥 *BREAKING CHANGE* : minimum node version expected : 20.18
+⚠️ This build should not be used. All files are under the src folder within dist. This may break your import and the typing of the package. Please use next version.
 
 ### New
 
