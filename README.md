@@ -327,3 +327,87 @@ export class TypeormUserFactory extends TypeormFactory<User> {
   };
 }
 ```
+
+---
+
+### Seeding (NEW)
+
+You can now easily seed your database using your factories with the `runSeed` utility.
+
+#### Example
+
+Create a `seed.ts` file in your project:
+
+```typescript
+import { runSeed } from '@adrien-may/factory';
+import { UserFactory } from './factories/user.factory';
+import { PostFactory } from './factories/post.factory';
+import { dataSource } from './db'; // your TypeORM DataSource
+
+export let fixtures: any = {};
+
+async function main() {
+  fixtures = await runSeed({
+    dataSource,
+    factories: { UserFactory, PostFactory },
+    seeds: async ({ UserFactory, PostFactory }) => {
+      const users = await UserFactory.createMany(10);
+      const posts = await PostFactory.createMany(20);
+      return {
+        users,
+        posts,
+      };
+    },
+  });
+}
+
+main();
+```
+
+* All factories are instantiated with the provided `dataSource`.
+* You can use all factory methods (create, createMany, etc) inside the `seeds` function.
+* This utility is framework-agnostic but works best with TypeORM.
+* You can access created instances via the `fixtures` object.
+
+---
+
+#### Example: Seeding in Jest setup
+
+You can also use `runSeed` in your Jest setup to ensure your test database is seeded before tests run:
+
+```typescript
+// jest.setup.ts
+import { runSeed } from '@adrien-may/factory';
+import { UserFactory } from './factories/user.factory';
+import { dataSource } from './db';
+
+beforeAll(async () => {
+  await runSeed({
+    dataSource,
+    factories: { UserFactory },
+    seeds: async ({ UserFactory }) => {
+      await UserFactory.createMany(5);
+    },
+  });
+});
+```
+
+---
+
+#### Example: Running seeds via npm
+
+Add this to your `package.json` scripts:
+
+```json
+"scripts": {
+  "seed": "ts-node ./seed.ts"
+}
+```
+
+Then run:
+
+```bash
+npm run seed
+```
+
+---
