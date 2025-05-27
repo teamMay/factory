@@ -33,7 +33,7 @@
   "devDependencies": {
     "@tsconfig/node20": "^20.1.5",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.18",
+    "@types/node": "^22.15.21",
     "@types/sinon": "^17.0.4",
     "@typescript-eslint/eslint-plugin": "8.32.1",
     "@typescript-eslint/parser": "8.32.1",
@@ -50,7 +50,7 @@
     "rimraf": "^6.0.1",
     "sinon": "^20.0.0",
     "sqlite3": "^5.1.7",
-    "ts-jest": "^29.3.3",
+    "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
     "typeorm": "^0.3.24",
     "typescript": "^5.8.3"

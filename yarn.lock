@@ -18,7 +18,7 @@ __metadata:
   dependencies:
     "@tsconfig/node20": "npm:^20.1.5"
     "@types/jest": "npm:^29.5.14"
-    "@types/node": "npm:^22.15.18"
+    "@types/node": "npm:^22.15.21"
     "@types/sinon": "npm:^17.0.4"
     "@typescript-eslint/eslint-plugin": "npm:8.32.1"
     "@typescript-eslint/parser": "npm:8.32.1"
@@ -35,7 +35,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     sinon: "npm:^20.0.0"
     sqlite3: "npm:^5.1.7"
-    ts-jest: "npm:^29.3.3"
+    ts-jest: "npm:^29.3.4"
     ts-node: "npm:^10.9.2"
     typeorm: "npm:^0.3.24"
     typescript: "npm:^5.8.3"
@@ -1265,7 +1265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.15.18":
+"@types/node@npm:*, @types/node@npm:^22.15.21":
   version: 22.15.21
   resolution: "@types/node@npm:22.15.21"
   dependencies:
@@ -5847,7 +5847,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^29.3.3":
+"ts-jest@npm:^29.3.4":
   version: 29.3.4
   resolution: "ts-jest@npm:29.3.4"
   dependencies:
