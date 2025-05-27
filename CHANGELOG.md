@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.1.0 (2025/05/27)
+
+### New
+
+* New seed feature: create a seed utils to load factories and create entities in the database.
+See Readme for usage.
+This feature is quite new and experimental, please report any issue you may encounter.
+
+### Internals
+
+* ⬆️ Upgrade all deps
+* 📝 Update README with new seed feature
+* 🔧 Use yarn@4
+
 ## v1.0.1 (2025/05/16)
 
 This build fixes the issue with the dist folder. All files are now in the root of the dist folder.
