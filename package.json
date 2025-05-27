@@ -1,6 +1,6 @@
 {
   "name": "@adrien-may/factory",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "🏭 Testing made easier with factories for your entities/models.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
