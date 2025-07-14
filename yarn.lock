@@ -6108,23 +6108,23 @@ __metadata:
   linkType: hard
 
 "typeorm@npm:^0.3.24":
-  version: 0.3.24
-  resolution: "typeorm@npm:0.3.24"
+  version: 0.3.25
+  resolution: "typeorm@npm:0.3.25"
   dependencies:
-    "@sqltools/formatter": "npm:^1.2.5"
-    ansis: "npm:^3.17.0"
-    app-root-path: "npm:^3.1.0"
-    buffer: "npm:^6.0.3"
-    dayjs: "npm:^1.11.13"
-    debug: "npm:^4.4.0"
-    dedent: "npm:^1.6.0"
-    dotenv: "npm:^16.4.7"
-    glob: "npm:^10.4.5"
-    sha.js: "npm:^2.4.11"
-    sql-highlight: "npm:^6.0.0"
-    tslib: "npm:^2.8.1"
-    uuid: "npm:^11.1.0"
-    yargs: "npm:^17.7.2"
+    "@sqltools/formatter": ^1.2.5
+    ansis: ^3.17.0
+    app-root-path: ^3.1.0
+    buffer: ^6.0.3
+    dayjs: ^1.11.13
+    debug: ^4.4.0
+    dedent: ^1.6.0
+    dotenv: ^16.4.7
+    glob: ^10.4.5
+    sha.js: ^2.4.11
+    sql-highlight: ^6.0.0
+    tslib: ^2.8.1
+    uuid: ^11.1.0
+    yargs: ^17.7.2
   peerDependencies:
     "@google-cloud/spanner": ^5.18.0 || ^6.0.0 || ^7.0.0
     "@sap/hana-client": ^2.12.25
@@ -6183,7 +6183,7 @@ __metadata:
     typeorm: cli.js
     typeorm-ts-node-commonjs: cli-ts-node-commonjs.js
     typeorm-ts-node-esm: cli-ts-node-esm.js
-  checksum: 9d93e34bd4468b281492c4a46bc2d5cdf32212e819375326df39ffea9a817a021e86cadc74664ce4c846415ec34102842e552891465eb7c2eb75ea7af893d503
+  checksum: fc620980f0eaab276f25d558544561bab305bd2ec8de195d9a36e539ff994cc56a1263025ca0f8863cc41e6a37af389ee9f866fe55cbd8acc85b65f2f7b7a1fb
   languageName: node
   linkType: hard
 
