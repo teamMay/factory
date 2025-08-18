@@ -6504,8 +6504,8 @@ __metadata:
   linkType: hard
 
 "typeorm@npm:^0.3.24":
-  version: 0.3.25
-  resolution: "typeorm@npm:0.3.25"
+  version: 0.3.26
+  resolution: "typeorm@npm:0.3.26"
   dependencies:
     "@sqltools/formatter": ^1.2.5
     ansis: ^3.17.0
@@ -6523,9 +6523,8 @@ __metadata:
     yargs: ^17.7.2
   peerDependencies:
     "@google-cloud/spanner": ^5.18.0 || ^6.0.0 || ^7.0.0
-    "@sap/hana-client": ^2.12.25
-    better-sqlite3: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
-    hdb-pool: ^0.1.6
+    "@sap/hana-client": ^2.14.22
+    better-sqlite3: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0
     ioredis: ^5.0.4
     mongodb: ^5.8.0 || ^6.0.0
     mssql: ^9.1.1 || ^10.0.1 || ^11.0.1
@@ -6534,7 +6533,7 @@ __metadata:
     pg: ^8.5.1
     pg-native: ^3.0.0
     pg-query-stream: ^4.0.0
-    redis: ^3.1.1 || ^4.0.0
+    redis: ^3.1.1 || ^4.0.0 || ^5.0.14
     reflect-metadata: ^0.1.14 || ^0.2.0
     sql.js: ^1.4.0
     sqlite3: ^5.0.3
@@ -6546,8 +6545,6 @@ __metadata:
     "@sap/hana-client":
       optional: true
     better-sqlite3:
-      optional: true
-    hdb-pool:
       optional: true
     ioredis:
       optional: true
@@ -6579,7 +6576,7 @@ __metadata:
     typeorm: cli.js
     typeorm-ts-node-commonjs: cli-ts-node-commonjs.js
     typeorm-ts-node-esm: cli-ts-node-esm.js
-  checksum: fc620980f0eaab276f25d558544561bab305bd2ec8de195d9a36e539ff994cc56a1263025ca0f8863cc41e6a37af389ee9f866fe55cbd8acc85b65f2f7b7a1fb
+  checksum: 766ee02b36566916f7cbb77a9a98a101d38c79a97a297ef8525408aa6ca1d166f77792942bf776d95569674fc6d71979e0186d6c0e07fdd88231432a6e4ace49
   languageName: node
   linkType: hard
 
