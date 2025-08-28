@@ -128,5 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+# yarn v4
+.yarn/releases
+.yarnrc.yml
 
 .DS_Store
