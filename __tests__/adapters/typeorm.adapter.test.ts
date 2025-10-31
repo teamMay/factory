@@ -24,12 +24,12 @@ describe('TypeormAdapter', () => {
       getRepository: jest.fn().mockReturnValue({ save }),
     };
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error mockDataSource is not an actual DataSource
     const adapter = new TypeormAdapter(mockDataSource);
+    adapter.entity = entity;
 
     // When
-    const result = adapter.save(instance, entity);
+    const result = adapter.save(instance);
 
     // Then
     expect(result).toBe(instance);

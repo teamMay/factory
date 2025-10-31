@@ -1,8 +1,9 @@
 import { Factory, LazySequence, LazyAttribute, Sequence, SubFactory } from '../../src';
+import { ObjectFactory } from '../../src/factories/objectFactory';
 import { Cook } from '../entities/Cook';
 import { RestaurantFactory } from './restaurant.factory';
 
-export class CookFactory extends Factory<Cook> {
+export class CookFactory extends ObjectFactory<Cook> {
   entity = Cook;
   attrs = {
     firstName: new Sequence((nb) => `Gordon clone n°${nb}`),
@@ -12,7 +13,7 @@ export class CookFactory extends Factory<Cook> {
   };
 }
 
-export class LazyCookFactory extends Factory<Cook> {
+export class LazyCookFactory extends ObjectFactory<Cook> {
   entity = Cook;
   attrs = {
     firstName: new Sequence((nb) => `Gordon${nb}`),
@@ -22,7 +23,7 @@ export class LazyCookFactory extends Factory<Cook> {
   };
 }
 
-export class LazySequenceCookFactory extends Factory<Cook> {
+export class LazySequenceCookFactory extends ObjectFactory<Cook> {
   entity = Cook;
   attrs = {
     firstName: 'Gordon',

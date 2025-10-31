@@ -7,15 +7,12 @@ import { SubFactory } from './subfactory';
 import { Constructable, ConstructableAttrs } from './types';
 import { LazySequence } from '.';
 
-class EmptyClass {}
-
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export abstract class Factory<T extends Record<string, any>> {
+export abstract class Factory<T extends Record<string, any>, AdapterArgs extends any[] = any[]> {
   /**
    * The model/entity you wish to create a factory for.
-   * By default, returns EmptyClass which offer no functionality but is compatible with the Factory class.
    */
-  protected entity: Constructable<T> = EmptyClass as Constructable<T>;
+  protected abstract entity: Constructable<T>;
   /**
    * List of your entity default fields populated by the factory
    */
@@ -24,7 +21,7 @@ export abstract class Factory<T extends Record<string, any>> {
   /**
    * Adapter used to save objects
    */
-  protected adapter: Adapter = new ObjectAdapter();
+  protected abstract adapter: Adapter<T, AdapterArgs>;
 
   /**
    * Build a factory.
@@ -53,8 +50,8 @@ export abstract class Factory<T extends Record<string, any>> {
    * persist instance (often via a database call)
    */
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  private async save<U extends Record<string, any> | Record<string, any>[]>(instance: U): Promise<U> {
-    return this.adapter.save(instance, this.entity);
+  protected async save<U extends T | T[]>(instance: U, ...args: AdapterArgs): Promise<U> {
+    return this.adapter.save(instance, ...args);
   }
 
   /**
@@ -75,9 +72,9 @@ export abstract class Factory<T extends Record<string, any>> {
   /**
    * build and persist entity
    */
-  async create(values: ConstructableAttrs<T> | {} = {}): Promise<T> {
+  async create(values: ConstructableAttrs<T> | {} = {}, ...args: AdapterArgs): Promise<T> {
     const instance: T = await this.build(values, { saveSubFactories: true });
-    const savedInstance = await this.save(instance);
+    const savedInstance = await this.save(instance, ...args);
     await this.applyPostGenerators(savedInstance);
     return savedInstance;
   }
@@ -85,12 +82,12 @@ export abstract class Factory<T extends Record<string, any>> {
   /**
    * build and persist entity several entities at once
    */
-  async createMany(count: number, values: ConstructableAttrs<T> | {} = {}): Promise<T[]> {
+  async createMany(count: number, values: ConstructableAttrs<T> | {} = {}, ...args: AdapterArgs): Promise<T[]> {
     const instances: T[] = Array.from({ length: count });
     for (let index = 0; index < instances.length; index++) {
       instances[index] = await this.createInstance(values, { saveSubFactories: true });
     }
-    const savedInstances = await this.save(instances);
+    const savedInstances = await this.save(instances, ...args);
     await Promise.all(savedInstances.map((instance) => this.applyPostGenerators(instance)));
     return savedInstances;
   }

@@ -11,10 +11,6 @@ export class RestaurantFactory extends TypeormFactory<Restaurant> {
     description: 'Best kebab in Caen',
   };
 
-  constructor(dataSource?: DataSource) {
-    super(dataSource);
-  }
-
   @PostGeneration()
   async addCooks(restaurant: Restaurant) {
     restaurant.cooks = await new CookFactory(this.dataSource).createMany(3, { restaurant });

@@ -1,13 +1,15 @@
 import { Factory, PostGeneration, SubFactory } from '../../src';
+import { ObjectAdapter } from '../../src/adapters/object.adapter';
+import { ObjectFactory } from '../../src/factories/objectFactory';
 import { Cook } from '../entities/Cook';
 import { Restaurant } from '../entities/Restaurant';
 import { CookFactory } from './cook.factory';
 
 const dummyFunction = () => true;
 
-export class RestaurantFactory extends Factory<Restaurant> {
-  entity = Restaurant;
+export class RestaurantFactory extends ObjectFactory<Restaurant> {
   attrs = { name: 'Beau gosse Kebab', open: true, description: 'Best kebab in Caen' };
+  entity = Restaurant;
 
   @PostGeneration()
   async addCooks(restaurant: Restaurant) {
@@ -28,10 +30,10 @@ interface PizzeriaWithChef extends Pizzeria {
   chef: Cook;
 }
 
-export class PizzeriaFactory extends Factory<Pizzeria> {
+export class PizzeriaFactory extends ObjectFactory<Pizzeria> {
   attrs = { name: 'Great Name' };
 }
 
-export class PizzeriaWithChefFactory extends Factory<PizzeriaWithChef> {
+export class PizzeriaWithChefFactory extends ObjectFactory<PizzeriaWithChef> {
   attrs = { name: 'Great Name', chef: new SubFactory(CookFactory) };
 }
