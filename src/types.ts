@@ -23,6 +23,9 @@ export type ConstructableAttrs<T extends Record<string, any>> = {
     | SubFactory<T[K]>;
 };
 export type SequenceCallback<T> = (nb: number) => T;
-export type AdapterClass = new () => Adapter;
+export type AdapterClass<
+  T extends Record<string, any> | Record<string, any>[],
+  args extends any[] = any[],
+> = new () => Adapter<T, args>;
 export type LazyAttributeCallback<T, U> = (instance: U) => T;
 export type LazySequenceCallback<T, U> = (nb: number, instance: U) => T;

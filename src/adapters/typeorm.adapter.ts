@@ -1,16 +1,17 @@
-import type { DataSource, EntityTarget } from 'typeorm';
+import type { DataSource, EntityTarget, ObjectLiteral } from 'typeorm';
 import { Adapter } from './adapter';
 
-export class TypeormAdapter extends Adapter {
+export class TypeormAdapter<T extends ObjectLiteral> extends Adapter<T> {
   private dataSource: DataSource;
+  entity: EntityTarget<T>;
 
   constructor(dataSource: DataSource) {
     super();
     this.dataSource = dataSource;
   }
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  save<T extends Record<string, any> | Record<string, any>[], E>(instance: T, entity: E): Promise<T> {
-    return this.dataSource.getRepository(entity as EntityTarget<T>).save(instance);
+  save<U extends T | T[]>(instance: U): Promise<U> {
+    // @ts-expect-error save does not know it can handle arrays
+    return this.dataSource.getRepository(this.entity).save(instance);
   }
 }
