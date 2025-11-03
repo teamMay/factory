@@ -121,13 +121,13 @@ const users = userFactory.createMany(5);
 You could use directly the factory without a defined entity and provide only an interface.
 
 ```typescript
-import { Factory } from '@adrien-may/factory';
+import { ObjectFactory } from '@adrien-may/factory';
 
 interface User {
   name: string;
 }
 
-class UserFactory extends Factory<User> {
+class UserFactory extends ObjectFactory<User> {
   // No entity defined
   attrs = {
     name: 'John Doe',
@@ -138,6 +138,94 @@ class UserFactory extends Factory<User> {
 const userFactory = new UserFactory();
 const user = userFactory.create();
 const users = userFactory.createMany(5);
+```
+
+##### Custom
+
+You may want to use factory with other ORMs or CMS. To illustrate it we will demonstrate how you would create a factory for payload cms
+
+For this, you should first create an adapter.
+
+```typescript
+import { Adapter } from '@teammay/factory'
+import {
+  DataFromCollectionSlug,
+  RequiredDataFromCollectionSlug,
+} from 'node_modules/payload/dist/collections/config/types'
+
+interface PayloadArgs {
+  draft: boolean;
+  locale: string
+}
+
+class PayloadAdapter extends Adapter<S extends CollectionSlug, [PayloadArgs?]> {
+    constructor(
+    private payload: Payload,
+    private slug: S,
+  ) {}
+
+  async save(
+    instance: RequiredDataFromCollectionSlug<S> | RequiredDataFromCollectionSlug<S>[],
+    { draft = false, locale = 'en' }: PayloadArgs = { draft: false, locale: 'en' },
+  ): Promise<DataFromCollectionSlug<S> | DataFromCollectionSlug<S>[]> {
+    const instances = Array.isArray(instance) ? instance : [instance]
+    const savedInstances = await Promise.all(
+      instances.map((data) =>
+        this.payload.create({
+          collection: this.slug,
+          data,
+          draft,
+          locale,
+        }),
+      ),
+    )
+    return Array.isArray(instance) ? savedInstances : savedInstances[0]
+  }
+
+}
+```
+
+Now with this adapter, we can create a PayloadFactory class
+
+```typescript
+import { Factory } from '@teammay/factory'
+import {
+  DataFromCollectionSlug,
+  RequiredDataFromCollectionSlug,
+} from 'node_modules/payload/dist/collections/config/types'
+import { CollectionSlug, Payload } from 'payload'
+
+
+
+abstract class PayloadFactory<S extends CollectionSlug> extends Factory<DataFromCollectionSlug<S>, [PayloadArgs?]> {
+  constructor(protected payload: Payload, protected slug: S) {
+    super()
+    this.adapter = new PayloadAdapter(payload, slug)
+  }
+}
+
+```
+
+With this class we can now instantiate factories for every payload collections. For instance if we have a collection with slug 'author' and containing only one field 'name' we would do : 
+
+
+```typescript
+
+interface User {
+  name: string;
+}
+
+class UserFactory extends PayloadFactory<'author'> {
+  // No entity defined
+  attrs = {
+    name: 'John Doe',
+  };
+}
+
+// Usage
+const userFactory = new UserFactory();
+const user = userFactory.create({}, {draft: true, locale: 'fr'});
+const users = userFactory.createMany(5, {}, {draft: false, locale: 'es'});
 ```
 
 #### Fuzzy generation with Fakerjs/Chancejs/
