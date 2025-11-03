@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.1 (2025/11/03)
+
+### Fix
+
+* 🐛 Previous version was completely wrong
+
 ## v2.0.0 (2025/11/03)
 
 ### New
