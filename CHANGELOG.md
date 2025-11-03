@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.0.0 (2025/11/03)
+
+### New
+
+* ✨ add adapter arguments to create and createMany
+* ✨ Payload factories
+
+### Breaking change
+
+* Factory class is now abstract. It is replaced by ObjectFactory class
+
 ## v1.1.0 (2025/05/27)
 
 ### New

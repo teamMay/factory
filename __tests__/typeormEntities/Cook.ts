@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, type Relation } from 'typeorm';
 import { Restaurant } from './Restaurant';
 
 @Entity()
@@ -14,5 +14,5 @@ export class Cook {
 
   @ManyToOne(() => Restaurant)
   @JoinColumn()
-  restaurant: Restaurant;
+  restaurant: Relation<Restaurant>;
 }
