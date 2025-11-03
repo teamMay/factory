@@ -5,8 +5,6 @@ import type { Payload } from 'payload';
 class EmptyClass {}
 
 export class CookFactory extends PayloadFactory<'cook'> {
-  protected entity = EmptyClass as any;
-
   constructor(payloadInstance: Payload) {
     super(payloadInstance, 'cook');
   }

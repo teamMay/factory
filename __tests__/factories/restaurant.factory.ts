@@ -35,5 +35,5 @@ export class PizzeriaFactory extends ObjectFactory<Pizzeria> {
 }
 
 export class PizzeriaWithChefFactory extends ObjectFactory<PizzeriaWithChef> {
-  attrs = { name: 'Great Name', chef: new SubFactory(CookFactory) };
+  attrs = { name: 'Great Name', chef: new SubFactory<Cook>(CookFactory) };
 }
