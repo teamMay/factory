@@ -10,8 +10,8 @@ export class TypeormAdapter<T extends ObjectLiteral> extends Adapter<T> {
     this.dataSource = dataSource;
   }
 
-  save<U extends T | T[]>(instance: U): Promise<U> {
-    // @ts-expect-error save does not know it can handle arrays
-    return this.dataSource.getRepository(this.entity).save(instance);
+  save<U extends T>(instance: U): Promise<U>;
+  save<U extends T[]>(instance: U): Promise<U> {
+    return this.dataSource.getRepository(this.entity).save(instance) as Promise<U>;
   }
 }

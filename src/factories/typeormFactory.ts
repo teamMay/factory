@@ -28,8 +28,11 @@ export abstract class TypeormFactory<T extends ObjectLiteral> extends Factory<T>
     this.adapter = new TypeormAdapter(this.dataSource);
   }
 
-  protected async save<U extends T | T[]>(instance: U): Promise<U> {
+  protected save(instance: T): Promise<T>;
+  protected save(instance: T[]): Promise<T[]>;
+  protected save(instance: T | T[]): Promise<T | T[]> {
     this.adapter.entity = this.entity;
+    // @ts-expect-error typescript inference is not working as expected here. To help it we could do Array.isArray(instance) ? super.save(instance) : super.save(instance) but it would be ugly
     return super.save(instance);
   }
 }
