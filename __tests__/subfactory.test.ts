@@ -1,6 +1,7 @@
 import { SubFactory } from '../src';
 import { RestaurantFactory } from './factories/restaurant.factory';
 import { CookFactory } from './typeormFactories/cook.factory';
+import { setDefaultDataSource, getDefaultDataSource } from '../src/factories/typeormFactory';
 
 describe('SubFactory', () => {
   it('is a wrapper which saves a factory and values to be overridden', () => {
@@ -33,12 +34,18 @@ describe('SubFactory', () => {
     );
   });
   it('instantiates the factory with the default dataSource if defined', () => {
-    // Arrange: mock getDefaultDataSource to return a dummy value
-    const dummyDataSource = { foo: 'bar' };
-    jest.spyOn(require('../src/factories/typeormFactory'), 'getDefaultDataSource').mockReturnValue(dummyDataSource);
+    // Arrange: set a default dataSource
+    const dummyDataSource = { foo: 'bar' } as any;
+    const originalDataSource = getDefaultDataSource();
+    setDefaultDataSource(dummyDataSource);
+
     // When
     const subFactory = new SubFactory(CookFactory);
+
     // Then
     expect(subFactory.factory).toBeInstanceOf(CookFactory);
+
+    // Cleanup
+    setDefaultDataSource(originalDataSource);
   });
 });
