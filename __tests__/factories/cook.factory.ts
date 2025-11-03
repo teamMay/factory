@@ -1,6 +1,7 @@
 import { Factory, LazySequence, LazyAttribute, Sequence, SubFactory } from '../../src';
 import { ObjectFactory } from '../../src/factories/objectFactory';
 import { Cook } from '../entities/Cook';
+import type { Restaurant } from '../entities/Restaurant';
 import { RestaurantFactory } from './restaurant.factory';
 
 export class CookFactory extends ObjectFactory<Cook> {
@@ -9,7 +10,7 @@ export class CookFactory extends ObjectFactory<Cook> {
     firstName: new Sequence((nb) => `Gordon clone n°${nb}`),
     lastName: 'Ramsay',
     mail: () => `${this.attrs.lastName}@email-fake.com`,
-    restaurant: new SubFactory(new RestaurantFactory()),
+    restaurant: new SubFactory<Restaurant>(new RestaurantFactory()),
   };
 }
 
@@ -19,7 +20,7 @@ export class LazyCookFactory extends ObjectFactory<Cook> {
     firstName: new Sequence((nb) => `Gordon${nb}`),
     lastName: 'Ramsay',
     mail: new LazyAttribute((instance: Cook) => `${instance.firstName}@yumyum.com`),
-    restaurant: new SubFactory(new RestaurantFactory(), { name: 'Starbucks' }),
+    restaurant: new SubFactory<Restaurant>(new RestaurantFactory(), { name: 'Starbucks' }),
   };
 }
 
@@ -29,6 +30,6 @@ export class LazySequenceCookFactory extends ObjectFactory<Cook> {
     firstName: 'Gordon',
     lastName: 'Ramsay',
     mail: new LazySequence((nb: number, instance: Cook) => `${instance.firstName}${nb}@yummy.com`),
-    restaurant: new SubFactory(new RestaurantFactory(), { name: 'Starbucks' }),
+    restaurant: new SubFactory<Restaurant>(new RestaurantFactory(), { name: 'Starbucks' }),
   };
 }

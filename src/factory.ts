@@ -49,8 +49,10 @@ export abstract class Factory<T extends Record<string, any>, AdapterArgs extends
   /**
    * persist instance (often via a database call)
    */
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  protected async save<U extends T | T[]>(instance: U, ...args: AdapterArgs): Promise<U> {
+  protected save(instance: T, ...args: AdapterArgs): Promise<T>;
+  protected save(instance: T[], ...args: AdapterArgs): Promise<T[]>;
+  protected save(instance: T | T[], ...args: AdapterArgs): Promise<T> | Promise<T[]> {
+    // @ts-expect-error typescript inference is not working as expected here. To help it we could do Array.isArray(instance) ? this.adapter.save(instance, ...args) : this.adapter.save(instance, ...args) but it would be ugly
     return this.adapter.save(instance, ...args);
   }
 
