@@ -40,7 +40,7 @@ describe('PayloadAdapter', () => {
     expect(create).toHaveBeenCalledTimes(1);
     expect(create).toHaveBeenCalledWith({
       collection: slug,
-      data: instance,
+      data: { ...instance, _status: 'published' },
       draft: false,
       locale: 'en',
     });
@@ -66,7 +66,7 @@ describe('PayloadAdapter', () => {
     expect(create).toHaveBeenCalledTimes(1);
     expect(create).toHaveBeenCalledWith({
       collection: slug,
-      data: instance,
+      data: { ...instance, _status: 'published' },
       draft: false,
       locale: 'en',
     });
@@ -91,8 +91,8 @@ describe('PayloadAdapter', () => {
     expect(result).toBe(savedInstance);
     expect(create).toHaveBeenCalledWith({
       collection: slug,
-      data: instance,
-      draft: true,
+      data: { ...instance, _status: 'draft' },
+      draft: false,
       locale: 'fr',
     });
   });
@@ -123,13 +123,13 @@ describe('PayloadAdapter', () => {
     expect(create).toHaveBeenCalledTimes(2);
     expect(create).toHaveBeenNthCalledWith(1, {
       collection: slug,
-      data: instances[0],
+      data: { ...instances[0], _status: 'published' },
       draft: false,
       locale: 'en',
     });
     expect(create).toHaveBeenNthCalledWith(2, {
       collection: slug,
-      data: instances[1],
+      data: { ...instances[1], _status: 'published' },
       draft: false,
       locale: 'en',
     });
@@ -155,8 +155,8 @@ describe('PayloadAdapter', () => {
     expect(create).toHaveBeenCalledTimes(1);
     expect(create).toHaveBeenCalledWith({
       collection: slug,
-      data: instances[0],
-      draft: true,
+      data: { ...instances[0], _status: 'draft' },
+      draft: false,
       locale: 'de',
     });
   });

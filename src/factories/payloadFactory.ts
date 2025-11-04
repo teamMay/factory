@@ -14,8 +14,12 @@ export abstract class PayloadFactory<Slug extends CollectionSlug> extends Factor
   constructor(
     protected payload: Payload,
     protected slug: Slug,
+    protected defaultArgs: PayloadArgs = {
+      draft: false,
+      locale: 'en',
+    },
   ) {
     super();
-    this.adapter = new PayloadAdapter<Slug>(payload, slug);
+    this.adapter = new PayloadAdapter<Slug>(payload, slug, defaultArgs);
   }
 }
