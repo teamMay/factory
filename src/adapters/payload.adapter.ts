@@ -10,6 +10,10 @@ export class PayloadAdapter<Slug extends CollectionSlug> extends Adapter<TypedCo
   constructor(
     private payload: Payload,
     private slug: Slug,
+    private defaultArgs: PayloadArgs = {
+      draft: false,
+      locale: 'en',
+    },
   ) {
     super();
   }
@@ -20,15 +24,19 @@ export class PayloadAdapter<Slug extends CollectionSlug> extends Adapter<TypedCo
     instance: Omit<TypedCollection[Slug], 'id'> | Omit<TypedCollection[Slug], 'id'>[],
     ...args: [PayloadArgs?]
   ) {
-    const { draft = false, locale = 'en' } = args[0] || {};
+    const { draft = this.defaultArgs.draft, locale = this.defaultArgs.locale } = args[0] || {};
     const instances = Array.isArray(instance) ? instance : [instance];
     const savedInstances = await Promise.all(
       instances.map((data) =>
         this.payload.create({
           collection: this.slug,
-          data,
-          draft,
+          data: {
+            ...data,
+            _status: draft ? 'draft' : 'published',
+          },
           locale,
+          // Funny: this draft is not to have document as draft... it just should be false
+          draft: false,
         }),
       ),
     );
