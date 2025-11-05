@@ -92,7 +92,7 @@ describe('PayloadAdapter', () => {
     expect(create).toHaveBeenCalledWith({
       collection: slug,
       data: { ...instance, _status: 'draft' },
-      draft: false,
+      draft: true,
       locale: 'fr',
     });
   });
@@ -156,7 +156,7 @@ describe('PayloadAdapter', () => {
     expect(create).toHaveBeenCalledWith({
       collection: slug,
       data: { ...instances[0], _status: 'draft' },
-      draft: false,
+      draft: true,
       locale: 'de',
     });
   });

@@ -6,20 +6,22 @@ import { Constructable } from '../types';
 class EmptyClass {}
 
 export abstract class PayloadFactory<Slug extends CollectionSlug> extends Factory<
-  TypedCollection[Slug],
+  TypedCollection[Slug] & { _status?: 'draft' | 'published' },
   [PayloadArgs?]
 > {
-  protected entity: Constructable<TypedCollection[Slug]> = EmptyClass as Constructable<TypedCollection[Slug]>;
+  public static adapterDefaultArgs: PayloadArgs = {
+    draft: false,
+    locale: 'en',
+  };
+  protected entity: Constructable<TypedCollection[Slug] & { _status?: 'draft' | 'published' }> =
+    EmptyClass as Constructable<TypedCollection[Slug] & { _status?: 'draft' | 'published' }>;
   protected adapter: PayloadAdapter<Slug>;
   constructor(
     protected payload: Payload,
     protected slug: Slug,
-    protected defaultArgs: PayloadArgs = {
-      draft: false,
-      locale: 'en',
-    },
+    protected adapterDefaultArgs?: PayloadArgs,
   ) {
     super();
-    this.adapter = new PayloadAdapter<Slug>(payload, slug, defaultArgs);
+    this.adapter = new PayloadAdapter<Slug>(payload, slug, adapterDefaultArgs ?? PayloadFactory.adapterDefaultArgs);
   }
 }
