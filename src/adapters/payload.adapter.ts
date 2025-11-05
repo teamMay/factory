@@ -11,8 +11,8 @@ export class PayloadAdapter<Slug extends CollectionSlug> extends Adapter<TypedCo
     private payload: Payload,
     private slug: Slug,
     private defaultArgs: PayloadArgs = {
-      draft: false,
       locale: 'en',
+      draft: false,
     },
   ) {
     super();
@@ -31,12 +31,11 @@ export class PayloadAdapter<Slug extends CollectionSlug> extends Adapter<TypedCo
         this.payload.create({
           collection: this.slug,
           data: {
-            ...data,
             _status: draft ? 'draft' : 'published',
+            ...data,
           },
           locale,
-          // Funny: this draft is not to have document as draft... it just should be false
-          draft: false,
+          draft,
         }),
       ),
     );

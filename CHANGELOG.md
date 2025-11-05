@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.2 (2025/11/05)
+
+### Fix
+
+* 🐛 draft on payload is not used to set publication state + allow external modification of default locale
+
 ## v2.0.1 (2025/11/03)
 
 ### Fix
