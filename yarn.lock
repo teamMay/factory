@@ -1557,11 +1557,11 @@ __metadata:
   linkType: hard
 
 "@payloadcms/db-sqlite@npm:^3.62.0":
-  version: 3.62.1
-  resolution: "@payloadcms/db-sqlite@npm:3.62.1"
+  version: 3.63.0
+  resolution: "@payloadcms/db-sqlite@npm:3.63.0"
   dependencies:
     "@libsql/client": "npm:0.14.0"
-    "@payloadcms/drizzle": "npm:3.62.1"
+    "@payloadcms/drizzle": "npm:3.63.0"
     console-table-printer: "npm:2.12.1"
     drizzle-kit: "npm:0.31.5"
     drizzle-orm: "npm:0.44.6"
@@ -1569,14 +1569,14 @@ __metadata:
     to-snake-case: "npm:1.0.0"
     uuid: "npm:9.0.0"
   peerDependencies:
-    payload: 3.62.1
-  checksum: 10c0/3e4cbb51d88217ed33ed0e845975b239229f4fb5e8152c1a4e0a4e952f8e0b32907cd58011762c36b9564085a7f9ee8592dab273d88060eee8f6c4e8d0c68ead
+    payload: 3.63.0
+  checksum: 10c0/d1ffc59632fa5113447997a55963150c38b7c55bfd4e03ab2a5d335519255d1b3505973c76e39cadfbaeacaadb4c05ee0eb8c88aeeb7ea3b7c881998b13497d1
   languageName: node
   linkType: hard
 
-"@payloadcms/drizzle@npm:3.62.1":
-  version: 3.62.1
-  resolution: "@payloadcms/drizzle@npm:3.62.1"
+"@payloadcms/drizzle@npm:3.63.0":
+  version: 3.63.0
+  resolution: "@payloadcms/drizzle@npm:3.63.0"
   dependencies:
     console-table-printer: "npm:2.12.1"
     dequal: "npm:2.0.3"
@@ -1585,8 +1585,8 @@ __metadata:
     to-snake-case: "npm:1.0.0"
     uuid: "npm:9.0.0"
   peerDependencies:
-    payload: 3.62.1
-  checksum: 10c0/cd110338dd391193edc641d901ba4112f5f3f86a9a00855b5910fe20e3e451c9b3b60b3d849b64e103203d00f655dd6e6c2d2c23e2f68abfc409d2ca3e813b60
+    payload: 3.63.0
+  checksum: 10c0/645c3e9415eb9eabf757adb3a9b31c4a9001b677fb9a50aad2ccfc8a9c70b4bb3f68d54af4e9135de980c2759cdf031a425bb8f27ffea34556157a275d2e8c48
   languageName: node
   linkType: hard
 
