@@ -41,7 +41,7 @@
   "sideEffects": false,
   "devDependencies": {
     "@payloadcms/db-sqlite": "^3.62.0",
-    "@swc/core": "1.14.0",
+    "@swc/core": "1.15.1",
     "@swc/jest": "0.2.39",
     "@tsconfig/node22": "^22.0.2",
     "@types/jest": "^30.0.0",
