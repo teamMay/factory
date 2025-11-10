@@ -1590,12 +1590,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/translations@npm:3.62.1":
-  version: 3.62.1
-  resolution: "@payloadcms/translations@npm:3.62.1"
+"@payloadcms/translations@npm:3.63.0":
+  version: 3.63.0
+  resolution: "@payloadcms/translations@npm:3.63.0"
   dependencies:
     date-fns: "npm:4.1.0"
-  checksum: 10c0/089b5756521fd611254ab927fcdd2c75548bde26b1a127420c6ae54be034a679fabc4b47a90f202c9b58b20ea908b6b25116d349c3156b8e3c75d49b00170055
+  checksum: 10c0/9500c84d2e8055d2cdd1a8ce85c44f00f0610cc128a238730a8ffbc8c29e8b8c4ae088a927286bdd6d9e47b17ba63c3b782e6ad016c5b8de25e72916a8bf65d7
   languageName: node
   linkType: hard
 
@@ -6428,11 +6428,11 @@ __metadata:
   linkType: hard
 
 "payload@npm:^3.62.0":
-  version: 3.62.1
-  resolution: "payload@npm:3.62.1"
+  version: 3.63.0
+  resolution: "payload@npm:3.63.0"
   dependencies:
     "@next/env": "npm:^15.1.5"
-    "@payloadcms/translations": "npm:3.62.1"
+    "@payloadcms/translations": "npm:3.63.0"
     "@types/busboy": "npm:1.5.4"
     ajv: "npm:8.17.1"
     bson-objectid: "npm:2.0.4"
@@ -6466,7 +6466,7 @@ __metadata:
     graphql: ^16.8.1
   bin:
     payload: bin.js
-  checksum: 10c0/03f661365b7f90b0679fef5cd16f09805e437dca5cad32cdc3c533206e81bf24dad4f41e8858a66d6da1c553cad2ce8a25460f571d25a3ed3ed5940c1e2f81f3
+  checksum: 10c0/57e41c4a75b65e71276e0d3504936ab051b325174b196b8d7a36597c421a6c0c86c88d29c6be0f75efefdcbf401fea3783f912a4b26e6d07ae027f509a9cf2a9
   languageName: node
   linkType: hard
 
