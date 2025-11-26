@@ -1,5 +1,4 @@
-import { Factory, PostGeneration, SubFactory } from '../../src';
-import { ObjectAdapter } from '../../src/adapters/object.adapter';
+import { PostGeneration, SubFactory } from '../../src';
 import { ObjectFactory } from '../../src/factories/objectFactory';
 import { Cook } from '../entities/Cook';
 import { Restaurant } from '../entities/Restaurant';

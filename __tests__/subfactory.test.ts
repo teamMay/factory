@@ -1,7 +1,6 @@
-import { SubFactory } from '../src';
+import { SubFactory, getDefaultDataSource, setDefaultDataSource } from '../src';
 import { RestaurantFactory } from './factories/restaurant.factory';
 import { CookFactory } from './typeormFactories/cook.factory';
-import { setDefaultDataSource, getDefaultDataSource } from '../src/factories/typeormFactory';
 
 describe('SubFactory', () => {
   it('is a wrapper which saves a factory and values to be overridden', () => {
@@ -16,6 +15,7 @@ describe('SubFactory', () => {
     expect(subFactory.factory).toBeInstanceOf(factory);
     expect(subFactory.values).toEqual(values);
   });
+
   it('is a wrapper which saves a factory and accepts another factory class as an argument', () => {
     // Given
     const factory = RestaurantFactory;
@@ -33,6 +33,7 @@ describe('SubFactory', () => {
       'No dataSource provided. You should either provide a default one or pass one in the constructor',
     );
   });
+
   it('instantiates the factory with the default dataSource if defined', () => {
     // Arrange: set a default dataSource
     const dummyDataSource = { foo: 'bar' } as any;

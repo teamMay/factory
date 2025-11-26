@@ -1,4 +1,4 @@
-import { Factory, LazySequence, LazyAttribute, Sequence, SubFactory } from '../../src';
+import { LazySequence, LazyAttribute, Sequence, SubFactory } from '../../src';
 import { ObjectFactory } from '../../src/factories/objectFactory';
 import { Cook } from '../entities/Cook';
 import type { Restaurant } from '../entities/Restaurant';
