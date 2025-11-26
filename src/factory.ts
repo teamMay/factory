@@ -1,4 +1,3 @@
-import { ObjectAdapter } from './adapters';
 import { Adapter } from './adapters/adapter';
 import { factoryStorage } from './factory-storage';
 import { Sequence } from './sequence';

@@ -1,6 +1,6 @@
 module.exports = {
   languageOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     globals: {
       node: 'readonly',
