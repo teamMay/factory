@@ -12,7 +12,7 @@ __metadata:
     "@payloadcms/db-sqlite": "npm:^3.65.0"
     "@swc/core": "npm:1.15.3"
     "@swc/jest": "npm:0.2.39"
-    "@tsconfig/node22": "npm:^22.0.5"
+    "@tsconfig/node24": "npm:^24.0.3"
     "@types/jest": "npm:^30.0.0"
     "@types/node": "npm:^24.10.1"
     "@types/sinon": "npm:^21.0.0"
@@ -37,7 +37,7 @@ __metadata:
     typeorm: "npm:^0.3.27"
     typescript: "npm:^5.9.3"
   peerDependencies:
-    payload: ">3.35.0"
+    payload: ">3.65.0"
     typeorm: ">0.3.25"
   peerDependenciesMeta:
     payload:
@@ -1822,10 +1822,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node22@npm:^22.0.5":
-  version: 22.0.5
-  resolution: "@tsconfig/node22@npm:22.0.5"
-  checksum: 10c0/c64b1d51e1556da9212463799f5096289d2cc8561eaed10cd0a0a36c25790b4c6bed30c0f846afccf8da75b5750326fa281216a908c2b67ead7b55adaf3eda22
+"@tsconfig/node24@npm:^24.0.3":
+  version: 24.0.3
+  resolution: "@tsconfig/node24@npm:24.0.3"
+  checksum: 10c0/68068b503774450d533dda769785356c5722bdc6a3333646fcbcb265e02aafb6d0784619ed85de6d62414df20483428b25bf3d608955ca40b085fb1f12cc26c4
   languageName: node
   linkType: hard
 

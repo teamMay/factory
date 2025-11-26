@@ -6,9 +6,10 @@ The following version can expect security updates. No support will be provided f
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.2.1   | :white_check_mark: |
-| < 0.0.x | :x:                |
+| 2.x.x   | :white_check_mark: |
+| 1.x.x   | :x: |
+| 0.x.x   | :x:                |
 
 ## Reporting a Vulnerability
 
-You can report any vulnerability by openning an issue on github. For critical issues, please contact us directly.
+You can report any vulnerability by opening an issue on github. For critical issues, please contact us directly.

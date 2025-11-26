@@ -43,7 +43,7 @@
     "@payloadcms/db-sqlite": "^3.65.0",
     "@swc/core": "1.15.3",
     "@swc/jest": "0.2.39",
-    "@tsconfig/node22": "^22.0.5",
+    "@tsconfig/node24": "^24.0.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.1",
     "@types/sinon": "^21.0.0",
@@ -72,10 +72,10 @@
     "dist/**/*"
   ],
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "peerDependencies": {
-    "payload": ">3.35.0",
+    "payload": ">3.65.0",
     "typeorm": ">0.3.25"
   },
   "peerDependenciesMeta": {
