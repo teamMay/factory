@@ -1,8 +1,7 @@
-import { getDefaultDataSource } from './factories/typeormFactory';
+import { getDefaultDataSource } from './factories/typeormHelper';
 import { Factory } from './factory';
-import { FactoryClass } from './types';
+import { type FactoryClass } from './types';
 
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export class SubFactory<T extends Record<string, any>> {
   factory: Factory<T>;
   values: Partial<T> | undefined;
@@ -11,7 +10,7 @@ export class SubFactory<T extends Record<string, any>> {
     if (factory instanceof Factory) {
       this.factory = factory;
     } else {
-      this.factory = new factory(getDefaultDataSource());
+      this.factory = new (factory as FactoryClass<T>)(getDefaultDataSource());
     }
     this.values = values;
   }

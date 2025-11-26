@@ -1,4 +1,3 @@
-import { DataSource } from 'typeorm';
 import { PostGeneration, TypeormFactory } from '../../src';
 import { Restaurant } from '../typeormEntities/Restaurant';
 import { CookFactory } from './cook.factory';

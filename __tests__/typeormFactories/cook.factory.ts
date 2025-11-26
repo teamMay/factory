@@ -1,4 +1,3 @@
-import { DataSource } from 'typeorm';
 import { TypeormFactory, SubFactory } from '../../src';
 import { Cook } from '../typeormEntities/Cook';
 import { RestaurantFactory } from './restaurant.factory';

@@ -1,11 +1,10 @@
-import { ObjectAdapter } from './adapters';
 import { Adapter } from './adapters/adapter';
 import { factoryStorage } from './factory-storage';
 import { Sequence } from './sequence';
 import { LazyAttribute } from './lazy-attribute';
+import { LazySequence } from './lazy-sequence';
 import { SubFactory } from './subfactory';
 import { Constructable, ConstructableAttrs } from './types';
-import { LazySequence } from '.';
 
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export abstract class Factory<T extends Record<string, any>, AdapterArgs extends any[] = any[]> {

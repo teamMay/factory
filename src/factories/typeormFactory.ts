@@ -1,16 +1,9 @@
-import type { DataSource, EntityTarget, ObjectLiteral } from 'typeorm';
+import type { DataSource, ObjectLiteral } from 'typeorm';
 import { TypeormAdapter } from '../adapters';
 import { Factory } from '../factory';
 import { Constructable } from '../types';
+import { getDefaultDataSource } from './typeormHelper';
 
-let defaultDataSource: DataSource;
-export const getDefaultDataSource = () => {
-  return defaultDataSource;
-};
-
-export const setDefaultDataSource = (dataSource: DataSource) => {
-  defaultDataSource = dataSource;
-};
 /**
  * This is a Factory with the typeormAdapter already set
  */
@@ -21,7 +14,7 @@ export abstract class TypeormFactory<T extends ObjectLiteral> extends Factory<T>
 
   constructor(dataSource?: DataSource) {
     super();
-    this.dataSource = defaultDataSource ?? dataSource;
+    this.dataSource = getDefaultDataSource() ?? dataSource;
     if (!this.dataSource) {
       throw new Error('No dataSource provided. You should either provide a default one or pass one in the constructor');
     }

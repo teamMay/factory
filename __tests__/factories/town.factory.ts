@@ -1,4 +1,3 @@
-import { Factory } from '../../src';
 import { ObjectFactory } from '../../src/factories/objectFactory';
 import { Town } from '../entities/Town';
 
