@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.4 (2025/11/27)
+
+Missing files in previous build
+
 ## v2.0.3 (2025/11/27)
 
 ### Fix
