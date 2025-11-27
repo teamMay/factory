@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.0.3 (2025/11/27)
+
+### Fix
+
+* 🐛 Export ObjectFactory at the root level
+
+### Internals
+
+* ⬆️ Bump deps
+* 🔧 Update yarn version
+* 🎨 Remove unused imports through the project
+
 ## v2.0.2 (2025/11/05)
 
 ### Fix
