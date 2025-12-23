@@ -40,15 +40,15 @@
   "license": "ISC",
   "sideEffects": false,
   "devDependencies": {
-    "@payloadcms/db-sqlite": "^3.65.0",
+    "@payloadcms/db-sqlite": "3.69.0",
     "@swc/core": "1.15.7",
     "@swc/jest": "0.2.39",
     "@tsconfig/node24": "^24.0.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.1",
     "@types/sinon": "^21.0.0",
-    "@typescript-eslint/eslint-plugin": "8.50.0",
-    "@typescript-eslint/parser": "8.50.0",
+    "@typescript-eslint/eslint-plugin": "8.50.1",
+    "@typescript-eslint/parser": "8.50.1",
     "codecov": "^3.8.3",
     "eslint": "9.39.2",
     "eslint-config-prettier": "^10.1.8",
@@ -57,15 +57,15 @@
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "lint-staged": "^16.2.7",
-    "payload": "^3.65.0",
-    "prettier": "^3.6.2",
+    "payload": "3.69.0",
+    "prettier": "^3.7.4",
     "reflect-metadata": "0.2.2",
     "rimraf": "^6.1.2",
-    "sinon": "^21.0.0",
+    "sinon": "^21.0.1",
     "sqlite3": "^5.1.7",
-    "ts-jest": "^29.4.5",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
-    "typeorm": "^0.3.27",
+    "typeorm": "^0.3.28",
     "typescript": "^5.9.3"
   },
   "files": [
@@ -75,7 +75,7 @@
     "node": ">=24"
   },
   "peerDependencies": {
-    "payload": ">3.65.0",
+    "payload": ">=3.69.0",
     "typeorm": ">0.3.25"
   },
   "peerDependenciesMeta": {
