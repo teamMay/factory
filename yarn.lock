@@ -1563,12 +1563,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/translations@npm:3.65.0":
-  version: 3.65.0
-  resolution: "@payloadcms/translations@npm:3.65.0"
+"@payloadcms/translations@npm:3.69.0":
+  version: 3.69.0
+  resolution: "@payloadcms/translations@npm:3.69.0"
   dependencies:
     date-fns: "npm:4.1.0"
-  checksum: 10c0/16cd8c13202d13767385c7f033cbd107b935309a537985e87b32f33741e6f9cb71329f5c86f566c3b9f0dc32526d4842bd0ddb231eca44a3e56f64c314dab3a7
+  checksum: 10c0/1388dff675cb82a3f23478d83095432bcad9fa1c76a22bd782b68cf90b0859b4245927a0c9c74e53b0de3cd3379676124b8f27ccd201887393770d51583d81d4
   languageName: node
   linkType: hard
 
@@ -6340,11 +6340,11 @@ __metadata:
   linkType: hard
 
 "payload@npm:^3.65.0":
-  version: 3.65.0
-  resolution: "payload@npm:3.65.0"
+  version: 3.69.0
+  resolution: "payload@npm:3.69.0"
   dependencies:
     "@next/env": "npm:^15.1.5"
-    "@payloadcms/translations": "npm:3.65.0"
+    "@payloadcms/translations": "npm:3.69.0"
     "@types/busboy": "npm:1.5.4"
     ajv: "npm:8.17.1"
     bson-objectid: "npm:2.0.4"
@@ -6367,6 +6367,7 @@ __metadata:
     pino-pretty: "npm:13.1.2"
     pluralize: "npm:8.0.0"
     qs-esm: "npm:7.0.2"
+    range-parser: "npm:1.2.1"
     sanitize-filename: "npm:1.6.3"
     scmp: "npm:2.1.0"
     ts-essentials: "npm:10.0.3"
@@ -6378,7 +6379,7 @@ __metadata:
     graphql: ^16.8.1
   bin:
     payload: bin.js
-  checksum: 10c0/b6631034a6ac3cf153557fc4478762d028073132abc5592b82a479646d4af92079e9b490c8e6cc9afe44f3c3844b88851b25bf062d4685085bb99aa8109be357
+  checksum: 10c0/6fb5791dd9ad3a05259ec5d6b2971613d6e564514a45c374c47753212ff4230dd6b26341625d886f33daf5146df27e85d644318454d35c2292b3078cab6ebdd2
   languageName: node
   linkType: hard
 
@@ -6657,6 +6658,13 @@ __metadata:
   version: 4.0.4
   resolution: "quick-format-unescaped@npm:4.0.4"
   checksum: 10c0/fe5acc6f775b172ca5b4373df26f7e4fd347975578199e7d74b2ae4077f0af05baa27d231de1e80e8f72d88275ccc6028568a7a8c9ee5e7368ace0e18eff93a4
+  languageName: node
+  linkType: hard
+
+"range-parser@npm:1.2.1":
+  version: 1.2.1
+  resolution: "range-parser@npm:1.2.1"
+  checksum: 10c0/96c032ac2475c8027b7a4e9fe22dc0dfe0f6d90b85e496e0f016fbdb99d6d066de0112e680805075bd989905e2123b3b3d002765149294dce0c1f7f01fcc2ea0
   languageName: node
   linkType: hard
 
