@@ -26,7 +26,7 @@ __metadata:
     husky: "npm:^9.1.7"
     jest: "npm:^30.2.0"
     lint-staged: "npm:^16.2.7"
-    payload: "npm:3.69.0"
+    payload: "npm:3.70.0"
     prettier: "npm:^3.7.4"
     reflect-metadata: "npm:0.2.2"
     rimraf: "npm:^6.1.2"
@@ -1563,12 +1563,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/translations@npm:3.69.0":
-  version: 3.69.0
-  resolution: "@payloadcms/translations@npm:3.69.0"
+"@payloadcms/translations@npm:3.70.0":
+  version: 3.70.0
+  resolution: "@payloadcms/translations@npm:3.70.0"
   dependencies:
     date-fns: "npm:4.1.0"
-  checksum: 10c0/1388dff675cb82a3f23478d83095432bcad9fa1c76a22bd782b68cf90b0859b4245927a0c9c74e53b0de3cd3379676124b8f27ccd201887393770d51583d81d4
+  checksum: 10c0/9eed4e8416cc3afe284698c57dad2c193c02a0279095fd362918384749592ab71d1f2f9deea9536a1872c057cd96966dd1482ac36f1ff1e896a507ddf79eeda7
   languageName: node
   linkType: hard
 
@@ -6343,12 +6343,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"payload@npm:3.69.0":
-  version: 3.69.0
-  resolution: "payload@npm:3.69.0"
+"payload@npm:3.70.0":
+  version: 3.70.0
+  resolution: "payload@npm:3.70.0"
   dependencies:
     "@next/env": "npm:^15.1.5"
-    "@payloadcms/translations": "npm:3.69.0"
+    "@payloadcms/translations": "npm:3.70.0"
     "@types/busboy": "npm:1.5.4"
     ajv: "npm:8.17.1"
     bson-objectid: "npm:2.0.4"
@@ -6383,7 +6383,7 @@ __metadata:
     graphql: ^16.8.1
   bin:
     payload: bin.js
-  checksum: 10c0/6fb5791dd9ad3a05259ec5d6b2971613d6e564514a45c374c47753212ff4230dd6b26341625d886f33daf5146df27e85d644318454d35c2292b3078cab6ebdd2
+  checksum: 10c0/8f5ec455fe37288dfd12889e4e074525f4c4d1aab59210c0af3d780dde84ec74ab23b0aecdc76616282fdc4cad51812f3029a7cf4ac2994d300e532b0926e2bb
   languageName: node
   linkType: hard
 
