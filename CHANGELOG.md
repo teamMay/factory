@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.1.0 (2026/01/13)
+
+### New
+
+* 🔧 Node 24 support
+
+### Fix
+
+* 🏷️  factory buildMany type update
+
+### Internals
+
+* ⬆️ Bump payload versions, @typescript-eslint/eslint-plugin@types/node from 25.0.3 to 25.0.6, @typescript-eslint/parser from 8.51.0 to 8.53.0, @swc/core from 1.15.7 to 1.15.8, @typescript-eslint/eslint-plugin, eslint from 9.39.1 to 9.39.2, ts-jest from 29.4.5 to 29.4.6, prettier from 3.6.2 to 3.7.4, typeorm from 0.3.27 to 0.3.28
+
 ## v2.0.4 (2025/11/27)
 
 Missing files in previous build
