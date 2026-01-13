@@ -40,7 +40,7 @@ export abstract class Factory<T extends Record<string, any>, AdapterArgs extends
   /**
    * creates several entity without persisting it in the database
    */
-  async buildMany(count: number, values: Partial<T> = {}): Promise<T[]> {
+  async buildMany(count: number, values: ConstructableAttrs<T> | {} = {}): Promise<T[]> {
     const instances: T[] = Array.from({ length: count });
     return Promise.all(instances.map(() => this.createInstance(values, { saveSubFactories: false })));
   }
