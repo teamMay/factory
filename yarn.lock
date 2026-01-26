@@ -26,7 +26,7 @@ __metadata:
     husky: "npm:^9.1.7"
     jest: "npm:^30.2.0"
     lint-staged: "npm:^16.2.7"
-    payload: "npm:3.70.0"
+    payload: "npm:3.73.0"
     prettier: "npm:^3.7.4"
     reflect-metadata: "npm:0.2.2"
     rimraf: "npm:^6.1.2"
@@ -1574,12 +1574,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/translations@npm:3.70.0":
-  version: 3.70.0
-  resolution: "@payloadcms/translations@npm:3.70.0"
+"@payloadcms/translations@npm:3.73.0":
+  version: 3.73.0
+  resolution: "@payloadcms/translations@npm:3.73.0"
   dependencies:
     date-fns: "npm:4.1.0"
-  checksum: 10c0/9eed4e8416cc3afe284698c57dad2c193c02a0279095fd362918384749592ab71d1f2f9deea9536a1872c057cd96966dd1482ac36f1ff1e896a507ddf79eeda7
+  checksum: 10c0/4bb0c10805a12dcbc233aa4a2023912b9fa6e9193c01a19117507c9c88b60964ea3202c7474cdec3aba9b4a320ba7917befe3d14fd56bb57434b144d461159b7
   languageName: node
   linkType: hard
 
@@ -6354,12 +6354,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"payload@npm:3.70.0":
-  version: 3.70.0
-  resolution: "payload@npm:3.70.0"
+"payload@npm:3.73.0":
+  version: 3.73.0
+  resolution: "payload@npm:3.73.0"
   dependencies:
     "@next/env": "npm:^15.1.5"
-    "@payloadcms/translations": "npm:3.70.0"
+    "@payloadcms/translations": "npm:3.73.0"
     "@types/busboy": "npm:1.5.4"
     ajv: "npm:8.17.1"
     bson-objectid: "npm:2.0.4"
@@ -6387,14 +6387,14 @@ __metadata:
     scmp: "npm:2.1.0"
     ts-essentials: "npm:10.0.3"
     tsx: "npm:4.20.3"
-    undici: "npm:7.10.0"
+    undici: "npm:7.18.2"
     uuid: "npm:10.0.0"
     ws: "npm:^8.16.0"
   peerDependencies:
     graphql: ^16.8.1
   bin:
     payload: bin.js
-  checksum: 10c0/8f5ec455fe37288dfd12889e4e074525f4c4d1aab59210c0af3d780dde84ec74ab23b0aecdc76616282fdc4cad51812f3029a7cf4ac2994d300e532b0926e2bb
+  checksum: 10c0/6ba9f296c7ae63a15409283bb9b592fa11eb0ca28a10349890fb2b85eb7295394eca363971ddad7765f714334aebc6e0d4b95f637124a7998a36f50f475e0483
   languageName: node
   linkType: hard
 
@@ -7816,10 +7816,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:7.10.0":
-  version: 7.10.0
-  resolution: "undici@npm:7.10.0"
-  checksum: 10c0/756ac876a8df845bc89eb8348c35d33a0ff63c17eb45b664075c961a7fbd4a398f94f9dce438262f55fe66e4bbb0a46aa63a3fd58ce51361c616aff11a270450
+"undici@npm:7.18.2":
+  version: 7.18.2
+  resolution: "undici@npm:7.18.2"
+  checksum: 10c0/4ff0722799f5e06fde5d1e58d318b1d78ba9a477836ad3e7374e9ac30ca20d1ab3282952d341635bf69b8e74b5c1cf366e595b3a96810e0dbf74e622dad7b5f9
   languageName: node
   linkType: hard
 
