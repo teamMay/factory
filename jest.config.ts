@@ -17,6 +17,10 @@ module.exports = {
       },
     ],
   },
+  moduleNameMapper: {
+    '^@next/env$': '<rootDir>/__tests__/mocks/next-env.ts',
+    '^prettier$': '<rootDir>/__tests__/mocks/prettier.ts',
+  },
   testPathIgnorePatterns: ['/node_modules/', '/build/', '/dist/'],
   coverageProvider: 'v8',
 };
