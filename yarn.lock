@@ -37,7 +37,7 @@ __metadata:
     typeorm: "npm:^0.3.28"
     typescript: "npm:^5.9.3"
   peerDependencies:
-    payload: ">=3.75.0"
+    payload: ">=3.76.1"
     typeorm: ">0.3.25"
   peerDependenciesMeta:
     payload:
