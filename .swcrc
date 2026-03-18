@@ -1,33 +1,30 @@
 {
-    "$schema": "https://json.schemastore.org/swcrc",
-    "jsc": {
-        "parser": {
-            "syntax": "typescript",
-            "tsx": false,
-            "decorators": true,
-            "dynamicImport": true
-        },
-        "transform": {
-            "legacyDecorator": true,
-            "decoratorMetadata": true
-
-        },
-        "target": "es2022",
-        "loose": false,
-        "paths": {
-            "@/*": [
-                "./*"
-            ]
-        },
-        "baseUrl": "./",
-        "externalHelpers": false,
-        "keepClassNames": true
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
     },
-    "module": {
-        "type": "commonjs",
-        "strict": true,
-        "noInterop": false
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
     },
-    "minify": false,
-    "sourceMaps": true
+    "target": "es2022",
+    "loose": false,
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "baseUrl": "./",
+    "externalHelpers": false,
+    "keepClassNames": true
+  },
+  "module": {
+    "type": "commonjs",
+    "strict": true,
+    "noInterop": false
+  },
+  "minify": false,
+  "sourceMaps": true
 }

@@ -23,7 +23,10 @@ export async function runSeed<TFactories extends Record<string, any>>({
   factories: TFactories;
 }) {
   // Instantiate all factories with the provided dataSource
-  const instantiatedFactories: Record<keyof TFactories, InstanceType<TFactories[keyof TFactories]>> = {} as Record<keyof TFactories, InstanceType<TFactories[keyof TFactories]>>;
+  const instantiatedFactories: Record<keyof TFactories, InstanceType<TFactories[keyof TFactories]>> = {} as Record<
+    keyof TFactories,
+    InstanceType<TFactories[keyof TFactories]>
+  >;
   for (const [name, FactoryClass] of Object.entries(factories) as [keyof TFactories, TFactories[keyof TFactories]][]) {
     instantiatedFactories[name] = new FactoryClass(dataSource);
   }
