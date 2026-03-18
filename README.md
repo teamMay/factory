@@ -14,10 +14,10 @@ This package makes testing easier by providing ways to create factories for your
 
 You can also have a look at these projects:
 
-* [typeorm-seeding](https://github.com/jorgebodega/typeorm-seeding)
-* [typeorm-factories](https://github.com/owl1n/typeorm-factories)
-* [typeorm-factory](https://github.com/linnify/typeorm-factory)
-* [factory-girl-typeorm](https://github.com/wymsee/factory-girl-typeorm)
+- [typeorm-seeding](https://github.com/jorgebodega/typeorm-seeding)
+- [typeorm-factories](https://github.com/owl1n/typeorm-factories)
+- [typeorm-factory](https://github.com/linnify/typeorm-factory)
+- [factory-girl-typeorm](https://github.com/wymsee/factory-girl-typeorm)
 
 ## Installation
 
@@ -43,9 +43,9 @@ This section provides a quick overview of what you can achieve with this package
 
 To declare a factory, you have to provide:
 
-* An adapter: ObjectAdapter, TypeormAdapter, ...
-* An entity [Optional without typeorm]: the model you are building
-* The fields to be populated (theirs default values or ways to generate them)
+- An adapter: ObjectAdapter, TypeormAdapter, ...
+- An entity [Optional without typeorm]: the model you are building
+- The fields to be populated (theirs default values or ways to generate them)
 
 The adapter allows you to persist your data. If you want to save your data in a database via typeorm, you can use the `TypeormAdapter` . Default Adapter is `ObjectAdapter` and does not persist anything. You can create your own adapter to persist your data the way you want.
 
@@ -188,29 +188,27 @@ class PayloadAdapter extends Adapter<S extends CollectionSlug, [PayloadArgs?]> {
 Now with this adapter, we can create a PayloadFactory class
 
 ```typescript
-import { Factory } from '@teammay/factory'
+import { Factory } from '@teammay/factory';
 import {
   DataFromCollectionSlug,
   RequiredDataFromCollectionSlug,
-} from 'node_modules/payload/dist/collections/config/types'
-import { CollectionSlug, Payload } from 'payload'
-
-
+} from 'node_modules/payload/dist/collections/config/types';
+import { CollectionSlug, Payload } from 'payload';
 
 abstract class PayloadFactory<S extends CollectionSlug> extends Factory<DataFromCollectionSlug<S>, [PayloadArgs?]> {
-  constructor(protected payload: Payload, protected slug: S) {
-    super()
-    this.adapter = new PayloadAdapter(payload, slug)
+  constructor(
+    protected payload: Payload,
+    protected slug: S,
+  ) {
+    super();
+    this.adapter = new PayloadAdapter(payload, slug);
   }
 }
-
 ```
 
-With this class we can now instantiate factories for every payload collections. For instance if we have a collection with slug 'author' and containing only one field 'name' we would do : 
-
+With this class we can now instantiate factories for every payload collections. For instance if we have a collection with slug 'author' and containing only one field 'name' we would do :
 
 ```typescript
-
 interface User {
   name: string;
 }
@@ -224,17 +222,17 @@ class UserFactory extends PayloadFactory<'author'> {
 
 // Usage
 const userFactory = new UserFactory();
-const user = userFactory.create({}, {draft: true, locale: 'fr'});
-const users = userFactory.createMany(5, {}, {draft: false, locale: 'es'});
+const user = userFactory.create({}, { draft: true, locale: 'fr' });
+const users = userFactory.createMany(5, {}, { draft: false, locale: 'es' });
 ```
 
 #### Fuzzy generation with Fakerjs/Chancejs/
 
 To generate pseudo random data for our factories, we can take advantage of libraries like:
 
-* [Fakerjs](https://github.com/MilosPaunovic/community-faker)
-* [Chancejs](https://chancejs.com)
-* ...
+- [Fakerjs](https://github.com/MilosPaunovic/community-faker)
+- [Chancejs](https://chancejs.com)
+- ...
 
 ```typescript
 import { TypeormFactory } from '@adrien-may/factory';
@@ -280,9 +278,9 @@ const userFactory = new UserFactory(typeormDatasource);
 
 The factory and its adapters expose some functions:
 
-* build: to create an object (and eventually generate data / subFactories)
-* create: same as make but persist object in database via ORM "save" method
-* buildMany and createMany allow to create several instances in one go
+- build: to create an object (and eventually generate data / subFactories)
+- create: same as make but persist object in database via ORM "save" method
+- buildMany and createMany allow to create several instances in one go
 
 ```typescript
 const user: User = await userFactory.create();
@@ -344,7 +342,7 @@ export class UserFactory extends Factory<User> {
   entity = User;
   attrs = {
     name: 'Sarah Connor',
-    mail: new LazyAttribute(instance => `${instance.name.toLowerCase()}@skynet.org`),
+    mail: new LazyAttribute((instance) => `${instance.name.toLowerCase()}@skynet.org`),
   };
 }
 ```
@@ -452,10 +450,10 @@ async function main() {
 main();
 ```
 
-* All factories are instantiated with the provided `dataSource`.
-* You can use all factory methods (create, createMany, etc) inside the `seeds` function.
-* This utility is framework-agnostic but works best with TypeORM.
-* You can access created instances via the `fixtures` object.
+- All factories are instantiated with the provided `dataSource`.
+- You can use all factory methods (create, createMany, etc) inside the `seeds` function.
+- This utility is framework-agnostic but works best with TypeORM.
+- You can access created instances via the `fixtures` object.
 
 ---
 

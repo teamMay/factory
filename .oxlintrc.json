@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript"],
+  "categories": {
+    "correctness": "warn"
+  },
+  "env": {
+    "builtin": true,
+    "es2026": true
+  },
+  "globals": {
+    "node": "readonly"
+  },
+  "ignorePatterns": ["node_modules/**", "dist/**", "coverage/**"],
+  "rules": {
+    "typescript/no-empty-function": "off"
+  }
+}

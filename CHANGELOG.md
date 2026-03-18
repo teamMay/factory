@@ -4,15 +4,15 @@
 
 ### New
 
-* 🔧 Node 24 support
+- 🔧 Node 24 support
 
 ### Fix
 
-* 🏷️  factory buildMany type update
+- 🏷️ factory buildMany type update
 
 ### Internals
 
-* ⬆️ Bump payload versions, @typescript-eslint/eslint-plugin@types/node from 25.0.3 to 25.0.6, @typescript-eslint/parser from 8.51.0 to 8.53.0, @swc/core from 1.15.7 to 1.15.8, @typescript-eslint/eslint-plugin, eslint from 9.39.1 to 9.39.2, ts-jest from 29.4.5 to 29.4.6, prettier from 3.6.2 to 3.7.4, typeorm from 0.3.27 to 0.3.28
+- ⬆️ Bump payload versions, @typescript-eslint/eslint-plugin@types/node from 25.0.3 to 25.0.6, @typescript-eslint/parser from 8.51.0 to 8.53.0, @swc/core from 1.15.7 to 1.15.8, @typescript-eslint/eslint-plugin, eslint from 9.39.1 to 9.39.2, ts-jest from 29.4.5 to 29.4.6, prettier from 3.6.2 to 3.7.4, typeorm from 0.3.27 to 0.3.28
 
 ## v2.0.4 (2025/11/27)
 
@@ -22,50 +22,50 @@ Missing files in previous build
 
 ### Fix
 
-* 🐛 Export ObjectFactory at the root level
+- 🐛 Export ObjectFactory at the root level
 
 ### Internals
 
-* ⬆️ Bump deps
-* 🔧 Update yarn version
-* 🎨 Remove unused imports through the project
+- ⬆️ Bump deps
+- 🔧 Update yarn version
+- 🎨 Remove unused imports through the project
 
 ## v2.0.2 (2025/11/05)
 
 ### Fix
 
-* 🐛 draft on payload is not used to set publication state + allow external modification of default locale
+- 🐛 draft on payload is not used to set publication state + allow external modification of default locale
 
 ## v2.0.1 (2025/11/03)
 
 ### Fix
 
-* 🐛 Previous version was completely wrong
+- 🐛 Previous version was completely wrong
 
 ## v2.0.0 (2025/11/03)
 
 ### New
 
-* ✨ add adapter arguments to create and createMany
-* ✨ Payload factories
+- ✨ add adapter arguments to create and createMany
+- ✨ Payload factories
 
 ### Breaking change
 
-* Factory class is now abstract. It is replaced by ObjectFactory class
+- Factory class is now abstract. It is replaced by ObjectFactory class
 
 ## v1.1.0 (2025/05/27)
 
 ### New
 
-* New seed feature: create a seed utils to load factories and create entities in the database.
-See Readme for usage.
-This feature is quite new and experimental, please report any issue you may encounter.
+- New seed feature: create a seed utils to load factories and create entities in the database.
+  See Readme for usage.
+  This feature is quite new and experimental, please report any issue you may encounter.
 
 ### Internals
 
-* ⬆️ Upgrade all deps
-* 📝 Update README with new seed feature
-* 🔧 Use yarn@4
+- ⬆️ Upgrade all deps
+- 📝 Update README with new seed feature
+- 🔧 Use yarn@4
 
 ## v1.0.1 (2025/05/16)
 
@@ -73,34 +73,34 @@ This build fixes the issue with the dist folder. All files are now in the root o
 
 ## Internals
 
-* ⬆️ Minor upgrade of all deps (typeorm)
+- ⬆️ Minor upgrade of all deps (typeorm)
 
 ## v1.0.0 (2025/05/16)
 
-* 💥 *BREAKING CHANGE* : minimum node version expected : 20.18
-⚠️ This build should not be used. All files are under the src folder within dist. This may break your import and the typing of the package. Please use next version.
+- 💥 _BREAKING CHANGE_ : minimum node version expected : 20.18
+  ⚠️ This build should not be used. All files are under the src folder within dist. This may break your import and the typing of the package. Please use next version.
 
 ### New
 
-* ✨ Add support to declare factory without entity and interface only
+- ✨ Add support to declare factory without entity and interface only
 
 ### Internals
 
-* ⬆️ Upgrade all deps
-* 💚 codecov integration
+- ⬆️ Upgrade all deps
+- 💚 codecov integration
 
 ## v0.3.0 (2024/05/30)
 
-* ⬆️ Upgrade all deps
-* 🏷️ Evolve typing to allow usage of LazyAttribute, Sequence etc... outside of factory definition and directly within factories instances.
-* 💥 *BREAKING CHANGE* : Drop support for node 18, start support for node 20
+- ⬆️ Upgrade all deps
+- 🏷️ Evolve typing to allow usage of LazyAttribute, Sequence etc... outside of factory definition and directly within factories instances.
+- 💥 _BREAKING CHANGE_ : Drop support for node 18, start support for node 20
 
 ## v0.2.1 (2023/08/28)
 
-* ⬆️ Upgrade all deps
-* ✨ Adding a first version of SECURITY.md file (quite empty for now)
-* ✏️ Correct typo in copyright in LICENSE
-* 🔧 Dependabot config: .github config
+- ⬆️ Upgrade all deps
+- ✨ Adding a first version of SECURITY.md file (quite empty for now)
+- ✏️ Correct typo in copyright in LICENSE
+- 🔧 Dependabot config: .github config
 
 ## v0.2.0 (2023/03/21)
 
@@ -109,9 +109,9 @@ This build fixes the issue with the dist folder. All files are now in the root o
 **Breaking changes**:
 💥 Drop support for node 16, start support for node 18
 
-* ⬆️ Upgrade all deps
-* ⬆️ Migrate to node 18
-* 🏷️ Fix typing errors with migration
+- ⬆️ Upgrade all deps
+- ⬆️ Migrate to node 18
+- 🏷️ Fix typing errors with migration
 
 ## v0.1.0 (2022/06/28)
 
@@ -119,16 +119,16 @@ This build fixes the issue with the dist folder. All files are now in the root o
 
 🎉 New contributor: @matthieuMay (<https://github.com/matthieuMay>)
 
-* ⬆️ Migrate to typeorm 0.3 and remove peer dep
-* 🔧 Move to node 16 (LTS)
-* 🙈 DS_Store in gitignore
-* 📝 fix import origin in documentation
+- ⬆️ Migrate to typeorm 0.3 and remove peer dep
+- 🔧 Move to node 16 (LTS)
+- 🙈 DS_Store in gitignore
+- 📝 fix import origin in documentation
 
 ## v0.0.3 (2022/01/13)
 
 ### Changes
 
-* 🚸 Factory: Allow to pass entity key even if absent from factory in .create/.build input
+- 🚸 Factory: Allow to pass entity key even if absent from factory in .create/.build input
 
 ## v0.0.2
 
@@ -138,8 +138,8 @@ This build fixes the issue with the dist folder. All files are now in the root o
 
 🎉 First release with the following features:
 
-* Typeorm adapter, Object adapter
-* Factories accept subfactories, sequences, lazy attributes, lazy sequences and functions as attributes
-* Post generation hooks
-* Fuzzy generation with Fakerjs/Chancejs/...is possible
-* TypeScript support
+- Typeorm adapter, Object adapter
+- Factories accept subfactories, sequences, lazy attributes, lazy sequences and functions as attributes
+- Post generation hooks
+- Fuzzy generation with Fakerjs/Chancejs/...is possible
+- TypeScript support
