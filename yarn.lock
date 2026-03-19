@@ -22,7 +22,7 @@ __metadata:
     lint-staged: "npm:^16.4.0"
     oxfmt: "npm:^0.41.0"
     oxlint: "npm:^1.56.0"
-    payload: "npm:3.76.1"
+    payload: "npm:3.79.1"
     reflect-metadata: "npm:0.2.2"
     rimraf: "npm:^6.1.3"
     sinon: "npm:^21.0.3"
@@ -1894,12 +1894,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/translations@npm:3.76.1":
-  version: 3.76.1
-  resolution: "@payloadcms/translations@npm:3.76.1"
+"@payloadcms/translations@npm:3.79.1":
+  version: 3.79.1
+  resolution: "@payloadcms/translations@npm:3.79.1"
   dependencies:
     date-fns: "npm:4.1.0"
-  checksum: 10c0/ac00bedac3eb5795ea7582d8c37af79d8ed1ec9a9d7b1db97280efe4c360288943434ff964b56ad96c1b44416abd81e7613875bd1be9e93af6ac0900437aba74
+  checksum: 10c0/62ceb9fc44f8a83d1231275afae3d2834c86779045d496d212fe6875115a7bc88678c09aecf6380a0154503412b68fcfdd68b4e4e576b78441b1ed72168b2fc1
   languageName: node
   linkType: hard
 
@@ -6328,12 +6328,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"payload@npm:3.76.1":
-  version: 3.76.1
-  resolution: "payload@npm:3.76.1"
+"payload@npm:3.79.1":
+  version: 3.79.1
+  resolution: "payload@npm:3.79.1"
   dependencies:
     "@next/env": "npm:^15.1.5"
-    "@payloadcms/translations": "npm:3.76.1"
+    "@payloadcms/translations": "npm:3.79.1"
     "@types/busboy": "npm:1.5.4"
     ajv: "npm:8.17.1"
     bson-objectid: "npm:2.0.4"
@@ -6367,7 +6367,7 @@ __metadata:
     graphql: ^16.8.1
   bin:
     payload: bin.js
-  checksum: 10c0/2e50c49d791ecc106cad3304a4c3de1375c507ca1ce94013fc94cfdadc0bf5ec041d594409c0db77425d9f49268de1c55f8ed04548ea4fd9df235a5a4321dd10
+  checksum: 10c0/dd76f9babb401f8b8c2bec30f818a5d719c61ca0b65656d1ff4867467630922275c0ef7989da7431f73f0e3ba4f6e3ab5be64c681411236195fc36654dbaef19
   languageName: node
   linkType: hard
 
