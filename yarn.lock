@@ -22,7 +22,7 @@ __metadata:
     lint-staged: "npm:^16.4.0"
     oxfmt: "npm:^0.42.0"
     oxlint: "npm:^1.56.0"
-    payload: "npm:3.79.1"
+    payload: "npm:3.80.0"
     reflect-metadata: "npm:0.2.2"
     rimraf: "npm:^6.1.3"
     sinon: "npm:^21.0.3"
@@ -1896,12 +1896,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/translations@npm:3.79.1":
-  version: 3.79.1
-  resolution: "@payloadcms/translations@npm:3.79.1"
+"@payloadcms/translations@npm:3.80.0":
+  version: 3.80.0
+  resolution: "@payloadcms/translations@npm:3.80.0"
   dependencies:
     date-fns: "npm:4.1.0"
-  checksum: 10c0/62ceb9fc44f8a83d1231275afae3d2834c86779045d496d212fe6875115a7bc88678c09aecf6380a0154503412b68fcfdd68b4e4e576b78441b1ed72168b2fc1
+  checksum: 10c0/05b45d753b6951a233d9d856f0f7a272c6b46c05706152e2553bee10f0a3b0fdc3a9a923d3de35ff8ebbb0105cf80d76c13afd4637259e16f9c9d142db339126
   languageName: node
   linkType: hard
 
@@ -6110,12 +6110,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"payload@npm:3.79.1":
-  version: 3.79.1
-  resolution: "payload@npm:3.79.1"
+"payload@npm:3.80.0":
+  version: 3.80.0
+  resolution: "payload@npm:3.80.0"
   dependencies:
     "@next/env": "npm:^15.1.5"
-    "@payloadcms/translations": "npm:3.79.1"
+    "@payloadcms/translations": "npm:3.80.0"
     "@types/busboy": "npm:1.5.4"
     ajv: "npm:8.17.1"
     bson-objectid: "npm:2.0.4"
@@ -6142,14 +6142,14 @@ __metadata:
     sanitize-filename: "npm:1.6.3"
     ts-essentials: "npm:10.0.3"
     tsx: "npm:4.21.0"
-    undici: "npm:7.18.2"
+    undici: "npm:7.24.4"
     uuid: "npm:10.0.0"
     ws: "npm:^8.16.0"
   peerDependencies:
     graphql: ^16.8.1
   bin:
     payload: bin.js
-  checksum: 10c0/dd76f9babb401f8b8c2bec30f818a5d719c61ca0b65656d1ff4867467630922275c0ef7989da7431f73f0e3ba4f6e3ab5be64c681411236195fc36654dbaef19
+  checksum: 10c0/3f65361931c67b361897069e213935ce8cd3ad7725c030f8a1849421f643f6e5a69089cf4063d44e5168717b8247f1ed4b8d6253baf5ac81d5360adcec42bcb6
   languageName: node
   linkType: hard
 
@@ -7484,10 +7484,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:7.18.2":
-  version: 7.18.2
-  resolution: "undici@npm:7.18.2"
-  checksum: 10c0/4ff0722799f5e06fde5d1e58d318b1d78ba9a477836ad3e7374e9ac30ca20d1ab3282952d341635bf69b8e74b5c1cf366e595b3a96810e0dbf74e622dad7b5f9
+"undici@npm:7.24.4":
+  version: 7.24.4
+  resolution: "undici@npm:7.24.4"
+  checksum: 10c0/cb302e81fadb7f0b7946ab77595715c0961b46a025ccecae79ba599432d0bc8d1e3da4dfe7ff66bc74f115c1b8ff0f099bc4e9bf313db4562da23995872c6d17
   languageName: node
   linkType: hard
 
