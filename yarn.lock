@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adrien-may/factory@workspace:."
   dependencies:
-    "@payloadcms/db-sqlite": "npm:3.79.1"
+    "@payloadcms/db-sqlite": "npm:3.81.0"
     "@swc/core": "npm:1.15.18"
     "@swc/jest": "npm:0.2.39"
     "@tsconfig/node24": "npm:^24.0.4"
@@ -1862,12 +1862,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/db-sqlite@npm:3.79.1":
-  version: 3.79.1
-  resolution: "@payloadcms/db-sqlite@npm:3.79.1"
+"@payloadcms/db-sqlite@npm:3.81.0":
+  version: 3.81.0
+  resolution: "@payloadcms/db-sqlite@npm:3.81.0"
   dependencies:
     "@libsql/client": "npm:0.14.0"
-    "@payloadcms/drizzle": "npm:3.79.1"
+    "@payloadcms/drizzle": "npm:3.81.0"
     console-table-printer: "npm:2.12.1"
     drizzle-kit: "npm:0.31.7"
     drizzle-orm: "npm:0.44.7"
@@ -1875,14 +1875,14 @@ __metadata:
     to-snake-case: "npm:1.0.0"
     uuid: "npm:9.0.0"
   peerDependencies:
-    payload: 3.79.1
-  checksum: 10c0/2020df9137de816266d85be0ca7da428467c013532c0297e897b82fcccbf753c418b04780a7ad8fc1182cd8a8ec75be9599b8d71c5e0d5793738844ba27fbbe6
+    payload: 3.81.0
+  checksum: 10c0/d639232aadf569ee2f9a9fe2e9b6b59b5788909873265a8aad7cf1e98386cda4a415831750c79823e55865d414469aad8331d4678c19f51f7c3a73fd31490c01
   languageName: node
   linkType: hard
 
-"@payloadcms/drizzle@npm:3.79.1":
-  version: 3.79.1
-  resolution: "@payloadcms/drizzle@npm:3.79.1"
+"@payloadcms/drizzle@npm:3.81.0":
+  version: 3.81.0
+  resolution: "@payloadcms/drizzle@npm:3.81.0"
   dependencies:
     console-table-printer: "npm:2.12.1"
     dequal: "npm:2.0.3"
@@ -1891,8 +1891,8 @@ __metadata:
     to-snake-case: "npm:1.0.0"
     uuid: "npm:9.0.0"
   peerDependencies:
-    payload: 3.79.1
-  checksum: 10c0/0a1c6ad1cfc65b72d9bedf8adae8df4ebc4a4a776c4a7798cbee5b0e2da11be4ab4949ac67743cd4804d0f94bf2a6ae6d2714b58a46005703d1ccba0bc6b2dc9
+    payload: 3.81.0
+  checksum: 10c0/316e65896dbb5ef25b610a769e88c126862dfd02d4e354e6cf265d72036a3f08c3805b1727ccb86e3a711b3c000e75ec5ec449f3e0ee1b7874ba37f056dc9af3
   languageName: node
   linkType: hard
 
