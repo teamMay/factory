@@ -41,7 +41,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@payloadcms/db-sqlite": "3.84.1",
+    "@payloadcms/db-sqlite": "3.88.0",
     "@swc/core": "1.15.40",
     "@swc/jest": "0.2.39",
     "@tsconfig/node24": "^24.0.4",
