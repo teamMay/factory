@@ -7,7 +7,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['./node_modules', './__tests__'],
   collectCoverage: true,
   transformIgnorePatterns: [
-    'node_modules/(?!(payload|@payloadcms|file-type|strtok3|peek-readable|token-types|@borewit|uint8array-extras|qs-esm|@libsql)/)',
+    'node_modules/(?!(payload|@payloadcms|file-type|strtok3|peek-readable|token-types|@borewit|uint8array-extras|qs-esm|@libsql|uuid|image-dimensions)/)',
   ],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)?$': [
