@@ -46,7 +46,7 @@
     "@swc/jest": "0.2.39",
     "@tsconfig/node24": "^24.0.4",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.9.1",
+    "@types/node": "^26.5.1",
     "@types/sinon": "^22.0.0",
     "codecov": "^3.8.3",
     "husky": "^9.1.7",
