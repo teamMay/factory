@@ -21,6 +21,8 @@ You can also have a look at these projects:
 
 ## Installation
 
+Requires Node.js 26 or newer.
+
 **NPM**
 
 ```bash
@@ -31,6 +33,21 @@ npm install @adrien-may/factory --save-dev
 
 ```bash
 yarn add @adrien-may/factory --dev
+```
+
+## Development
+
+Use the Node.js version in `.nvmrc` and the Yarn version pinned in `package.json`:
+
+```bash
+nvm install
+nvm use
+npm install --global corepack@0.36.0
+corepack enable
+yarn install --immutable
+yarn check-all
+yarn build
+yarn test --coverage
 ```
 
 ## Usage
