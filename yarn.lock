@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adrien-may/factory@workspace:."
   dependencies:
-    "@payloadcms/db-sqlite": "npm:3.90.2"
+    "@payloadcms/db-sqlite": "npm:3.91.0"
     "@swc/core": "npm:1.16.18"
     "@swc/jest": "npm:0.2.39"
     "@tsconfig/node26": "npm:^26.0.1"
@@ -22,7 +22,7 @@ __metadata:
     lint-staged: "npm:^17.6.0"
     oxfmt: "npm:^0.72.0"
     oxlint: "npm:^1.87.0"
-    payload: "npm:3.90.2"
+    payload: "npm:3.91.0"
     reflect-metadata: "npm:0.2.2"
     rimraf: "npm:^6.1.3"
     sinon: "npm:^22.1.0"
@@ -2097,12 +2097,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/db-sqlite@npm:3.90.2":
-  version: 3.90.2
-  resolution: "@payloadcms/db-sqlite@npm:3.90.2"
+"@payloadcms/db-sqlite@npm:3.91.0":
+  version: 3.91.0
+  resolution: "@payloadcms/db-sqlite@npm:3.91.0"
   dependencies:
     "@libsql/client": "npm:0.14.0"
-    "@payloadcms/drizzle": "npm:3.90.2"
+    "@payloadcms/drizzle": "npm:3.91.0"
     console-table-printer: "npm:2.12.1"
     drizzle-kit: "npm:0.31.7"
     drizzle-orm: "npm:0.45.2"
@@ -2110,14 +2110,14 @@ __metadata:
     to-snake-case: "npm:1.0.0"
     uuid: "npm:13.0.2"
   peerDependencies:
-    payload: 3.90.2
-  checksum: 10c0/b1129a513eb2ece311d6dd0f55f407c1afa3a6077745f8703e835a3cc09c735724e47ae0e878de784f313d555572fd70b3242b1875c279ebd212c039081cc0dd
+    payload: 3.91.0
+  checksum: 10c0/aad2925e5c5250c6eec6a99aafc6935f023054061639c7ef81d239efad839358b322cb7b2c51d8b0e6a5b485e6693bc5ad2f81f9b8fa2985df2a0f11d66029b6
   languageName: node
   linkType: hard
 
-"@payloadcms/drizzle@npm:3.90.2":
-  version: 3.90.2
-  resolution: "@payloadcms/drizzle@npm:3.90.2"
+"@payloadcms/drizzle@npm:3.91.0":
+  version: 3.91.0
+  resolution: "@payloadcms/drizzle@npm:3.91.0"
   dependencies:
     console-table-printer: "npm:2.12.1"
     dequal: "npm:2.0.3"
@@ -2126,17 +2126,17 @@ __metadata:
     to-snake-case: "npm:1.0.0"
     uuid: "npm:13.0.2"
   peerDependencies:
-    payload: 3.90.2
-  checksum: 10c0/5d6b6b7ae4d2ea2ca12511a71880f689479c2cfed66fc13115d03a0df3780ac37c218c44dd55b36c3cd06d7146fca97f605294efd666dd8f813fbaac6e6a7103
+    payload: 3.91.0
+  checksum: 10c0/568c805fe572ec8c284d009461e84108a616910eb3c083ea08214ee9fe13e72bfb47377e4fa9e9aff3048351267e1c7dc250d236c36e1fbc14a1738f0d48c0e0
   languageName: node
   linkType: hard
 
-"@payloadcms/translations@npm:3.90.2":
-  version: 3.90.2
-  resolution: "@payloadcms/translations@npm:3.90.2"
+"@payloadcms/translations@npm:3.91.0":
+  version: 3.91.0
+  resolution: "@payloadcms/translations@npm:3.91.0"
   dependencies:
     date-fns: "npm:4.1.0"
-  checksum: 10c0/4e510d5f5c42cea7768d5ca3b6ea1ea3cb13f24f6c0ce9d7300e82a83572ef830e03159374bfd830625c77c82c6874fe9f24890e967f0b826b4d11aafe420334
+  checksum: 10c0/09731e68466594edc6c9ed70aa8f2d3d74bb39e2d3963a0e66c2756153092a01f9b9c07139902bfee0a1c1b23c84c0fba71c587da2dba366e989a9373a7d010c
   languageName: node
   linkType: hard
 
@@ -6146,12 +6146,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"payload@npm:3.90.2":
-  version: 3.90.2
-  resolution: "payload@npm:3.90.2"
+"payload@npm:3.91.0":
+  version: 3.91.0
+  resolution: "payload@npm:3.91.0"
   dependencies:
     "@next/env": "npm:^15.1.5"
-    "@payloadcms/translations": "npm:3.90.2"
+    "@payloadcms/translations": "npm:3.91.0"
     "@types/busboy": "npm:1.5.4"
     ajv: "npm:8.18.0"
     bson-objectid: "npm:2.0.4"
@@ -6178,15 +6178,15 @@ __metadata:
     sanitize-filename: "npm:1.6.3"
     sax: "npm:1.6.1"
     ts-essentials: "npm:10.0.3"
-    tsx: "npm:4.22.4"
-    undici: "npm:7.29.0"
+    tsx: "npm:4.23.15"
+    undici: "npm:7.29.1"
     uuid: "npm:13.0.2"
     ws: "npm:^8.16.0"
   peerDependencies:
     graphql: ^16.8.1
   bin:
     payload: bin.js
-  checksum: 10c0/d8dfc91106078242e85a7cbe105c42fef437388626abdb2cb4498030bb68e454e89d3da48e0947651d4813a6cf0310a270ee16e7792d3a304ce1e46acac45c80
+  checksum: 10c0/1ff873f13f3d66b4a6a056479fc02dd92637867c2215d913d6a7a1b1e9b0ad3ddb63c3d20a0f481e0384ac7c474cfb0b2c2501de845e968b5cf9f73d3eea320d
   languageName: node
   linkType: hard
 
@@ -7175,9 +7175,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:4.22.4":
-  version: 4.22.4
-  resolution: "tsx@npm:4.22.4"
+"tsx@npm:4.23.15":
+  version: 4.23.15
+  resolution: "tsx@npm:4.23.15"
   dependencies:
     esbuild: "npm:~0.28.0"
     fsevents: "npm:~2.3.3"
@@ -7186,7 +7186,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10c0/3df31eb4929ff501b40b122163705b201ea57a492581e14312ae95d21eb015b33ded46a3fd564f9c89a0e8083186987fc4f10dd38182c4ad6241605974f6c927
+  checksum: 10c0/3c5fc53e578da87d3a63565286b1ecbb0e01b9bb646daec1957294ef890d14f22cc67bb4b09b5daffab0e7ce0217b1e7645393feb0f524b1ddf26ae9595d7e75
   languageName: node
   linkType: hard
 
@@ -7342,10 +7342,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:7.29.0":
-  version: 7.29.0
-  resolution: "undici@npm:7.29.0"
-  checksum: 10c0/85ea96e91e7f3de24de678cbbc54230fdd641a3b0643005f2aef044af1f1a2db8fbecb88b28e6fa78bb41ffeafda4479b57075b6b6ab92beac4b7b5ab53f9b10
+"undici@npm:7.29.1":
+  version: 7.29.1
+  resolution: "undici@npm:7.29.1"
+  checksum: 10c0/5a419b1364531071ebdfd93748f7f2392d4eb6d68dd99814e1020f8fc6a517e3298129004c871516ee204bac68aba93541f587200b04a7449b8d45683a7d86f6
   languageName: node
   linkType: hard
 
