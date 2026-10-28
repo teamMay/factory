@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@payloadcms/db-sqlite": "3.92.0",
-    "@swc/core": "1.16.18",
+    "@swc/core": "1.16.20",
     "@swc/jest": "0.2.39",
     "@tsconfig/node26": "^26.0.1",
     "@types/jest": "^30.0.0",
