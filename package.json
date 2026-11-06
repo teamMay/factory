@@ -60,7 +60,7 @@
     "sinon": "^22.1.0",
     "sqlite3": "^6.0.1",
     "ts-node": "^10.9.2",
-    "typeorm": "^0.3.31",
+    "typeorm": "^1.1.2",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
